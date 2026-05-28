@@ -1,0 +1,29 @@
+.NutriBanner{
+    width: 100%;
+    height: 500px;
+    background: #F7F7F7;
+}
+.NutriBanner img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.NutriSpecProducts{
+    background: white;
+    width: 100%;
+    /*background: white;*/
+    height: 500px;
+    color: black;
+}
+.NutriSpecProductsContainer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+
+    scrollbar-color: #ccc #fff;
+}

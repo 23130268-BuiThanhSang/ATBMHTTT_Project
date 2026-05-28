@@ -1,0 +1,471 @@
+/* ACCOUNT INFO */
+.accInfo{
+    /*padding-top: 58px;*/
+    height: 600px;
+    background: white;
+}
+/* ====== LAYOUT CONTAINER ========== */
+.layout.layout-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 32px; /* Khoảng cách chuẩn giữa sidebar và body */
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: calc(100vh - 120px);
+}
+/* ====== SIDEBAR TÀI KHOẢN ====== */
+.AccountLeft {
+    background: linear-gradient(104deg, #ebf5ff 0%, #f7fbfe 100%);
+    border-radius: 17px;
+    min-width: 320px;
+    max-width: 370px;
+    padding: 38px 12px 20px 12px;
+    box-shadow: 0 6px 26px rgba(10,54,124,0.09);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    /* margin-right không cần nếu đã dùng gap ở layout cha */
+    margin-left: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: sticky;
+    top: 76px; /* Số này bằng chiều cao menu của bạn; chỉnh lại cho khớp */
+    z-index: 20;
+}
+/* ========== SIDEBAR ACCOUNT - PROFILE ========== */
+.AvatarAccount {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 31px;
+}
+.avtr {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    /*border: 3px solid #007adf;*/
+    box-shadow: 0 2px 8px rgba(0,122,223,0.13);
+}
+.AccountName {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+.nameus {
+    font-size: 18px;
+    font-weight: 700;
+    /*color: #022d6b;*/
+    letter-spacing: 0.2px;
+}
+.stk {
+    font-size: 14px;
+    color: #5f7fae;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(9,43,110,0.06);
+}
+
+.AccountLeftOption {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    width: 100%;
+    overflow: visible;
+}
+.OptionIcon {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 12px;
+    background: #eff2fc;
+    border-radius: 12px;
+    /*color: #013478;*/
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    transition: background 0.17s, color 0.17s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.OptionIcon i {
+    font-size: 17px;
+    color: #007adf;
+    transition: color 0.22s;
+}
+.OptionIcon:hover {
+    background: #d6e5ff;
+    color: #007adf;
+    box-shadow: 0 4px 14px rgba(0,122,223,0.10);
+}
+.OptionIcon:hover i {
+    color: #2754c3;
+}
+.NameOptionBold.active, .NameOptionBold {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 15px;
+    background: linear-gradient(94deg,#205ee7 0, #00ccff 100%);
+    color: #fff;
+    border-radius: 13px;
+    font-size: 17px;
+    font-weight: 600;
+    box-shadow: 0 3px 12px rgba(32,94,231,0.11);
+}
+.NameOptionBold i {
+    font-size: 18px;
+    margin-right: 3px;
+}
+.NameOptionBoldText {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Đăng xuất (SignOut) */
+.SignOut {
+    margin-top: 26px;
+    text-align: left;
+    width: 100%;
+}
+.OptionSignOut {
+    color: #ef4444;
+    font-size: 15px;
+    font-weight: 500;
+    background: #fff;
+    padding: 7px 15px;
+    border-radius: 7px;
+    transition: background 0.17s, color 0.13s;
+    box-shadow: 0 2px 6px rgba(250,74,74,0.08);
+    text-decoration: none;
+    display: inline-block;
+}
+.OptionSignOut:hover {
+    background: #ef4444;
+    color: #fff !important;
+}
+
+.AccountLeftOption a:hover {
+    color: #01A0DA;
+}
+
+
+.NameOptionBold{
+    margin-left: 10px;
+}
+.AccountLeftOption .NameOptionBold i{
+    font-size: 30px;
+    text-align: center;
+    color: #01A0DA;
+}
+
+.fa-user{
+    margin-left: 3px;
+}
+.fa-bars{
+    margin-left: 4px;
+}
+.fa-cart-shopping{
+    margin-left: -2px;
+}
+.fa-lock{
+    margin-left: 3px;
+}
+.fa-clipboard-user{
+    margin-left: 5px;
+}
+
+.WelcomeAccount{
+    margin-left: 620px;
+    width: 700px;
+    padding-top: 90px;
+}
+.WelcomeImage{
+    width: 600px;
+    height: 300px;
+}
+.WelcomeText{
+    margin-left: -90px;
+    font-size: 20px;
+    text-align: center;
+}
+/*Update Profile*/
+.addressInfo{
+    margin-top: 60px;
+    width: 1145px;
+    font-family: sans-serif;
+    padding-bottom: 30px;
+}
+#addressTitle{
+    font-size: 35px;
+    transform: translateY(-20px);
+    margin-left: 10px;
+}
+.addressList{
+    display: flex;
+    /*margin-top: 10px;*/
+    font-size: 17px;
+    transform: translateY(-15px);
+    flex-wrap: wrap;
+}
+.addressList .adr {
+    margin-top: 20px;
+}
+.addressList .adr input {
+    height: 30px;
+    width: 920px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.addressButton{
+    font-size: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 10px;
+    background: #2B7AE6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+/*ChangePassword*/
+.ChangePassword{
+    margin-top: 10px;
+}
+#PasswordHeader{
+    font-size: 35px;
+    padding-top: 40px;
+    font-family: sans-serif;
+}
+.PasswordGroup{
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.PasswordText{
+    margin-top: 15px;
+}
+.PasswordText input{
+    width: 920px;
+    height: 30px;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+.PasswordButton button{
+    font-size: 15px;
+    margin-top: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;
+    border-radius: 7px;
+    padding: 10px;
+    background: #2B7AE6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+/*Credit Card*/
+.chooseOption{
+    height: 600px;
+    margin-left: 380px;
+    padding-top: 40px;
+    font-family: sans-serif;
+}
+#payText{
+    font-size: 35px;
+    width: 700px;
+}
+.payList{
+    margin-top: 10px;
+    width: 800px;
+    height: 480px;
+}
+.payInfo{
+    width: 350px;
+    height: 220px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background: #E1FDFF;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    transform: translateX(-20px);
+}
+.payIcon1{
+    width: 120px;
+    height: 120px;
+    margin-top: 45px;
+    margin-left: 15px;
+}
+.payIcon2{
+    width: 120px;
+    height: 120px;
+    margin-top: 45px;
+    transform: translateX(-45px);
+}
+.payIcon3{
+    width: 120px;
+    height: 120px;
+    margin-top: 50px;
+    margin-left: 15px;
+    transform: translateX(-55px);
+    border-radius: 15px;
+}
+.payIcon4{
+    width: 120px;
+    height: 120px;
+    margin-top: 45px;
+    transform: translateX(-10px);
+}
+.payName1{
+    font-size: 20px;
+    margin-left: 15px;
+    transform: translate(1px, 47px);
+}
+.payName2{
+    font-size: 20px;
+    margin-left: 15px;
+    transform: translate(-45px, 48px);
+}
+.payName3{
+    font-size: 20px;
+    margin-left: 15px;
+    transform: translate(-45px, 49px);
+}
+.payName4{
+    font-size: 20px;
+    margin-left: 15px;
+    transform: translate(-17px, 53px);
+}
+
+.payGroup{
+    display: flex;
+}
+.payGroup{
+    display: flex;
+}
+/*MEMBER CARD*/
+.memberCard{
+    margin-left: 380px;
+    width: 500px;
+    padding-top: 40px;
+    font-family: sans-serif;
+}
+#memberText{
+    font-size: 35px;
+}
+#memberGuide{
+    font-size: 20px;
+    margin-top: 10px;
+    width: 1500px;
+}
+.logoCard{
+    display: flex;
+    transform: translateY(-30px);
+    margin-right: 15px;
+}
+.CardInfo{
+    margin-top: 22px;
+    background: #E1FDFF;
+    margin-left: 310px;
+    width: 600px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logoImg{
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+}
+#logoText{
+    margin-top: 20px;
+    font-size: 25px;
+    color: #02BBE7;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+#cardName{
+    width: 300px;
+    font-weight: bold;
+    margin-left: 200px;
+    transform: translateY(-30px);
+}
+.imgseri{
+    width: 340px;
+    height: 120px;
+    transform: translateY(-20px);
+}
+#seriText{
+    transform: translateY(-5px);
+}
+#memberBenefic{
+    font-size: 25px;
+    transform: translateY(390px);
+}
+#beneficInfo{
+    font-size: 20px;
+    width: 700px;
+    transform: translateY(410px);
+}
+
+/**
+thực hiện css cho combobox của các tình/ thành phố
+ */
+.ComboBoxCity{
+    margin-left: 10px;
+    height: 34px;
+}
+.backgroundWhite{
+    background: white;
+}
+
+.addressList form {
+    width: 100%;
+}
+
+.addressButton {
+    margin-top: 25px;
+}
+
+.msg-success {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #34d399;
+    font-weight: 500;
+}
+
+.msg-error {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+

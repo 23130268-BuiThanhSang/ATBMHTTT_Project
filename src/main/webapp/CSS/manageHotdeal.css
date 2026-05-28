@@ -1,0 +1,314 @@
+/* ===== MANAGE HOT DEAL STYLES (Based on Order Manager) ===== */
+
+/* Main Content Area */
+.OrderManagerUI {
+    flex: 1;
+    /* Adjust this margin based on your actual sidebar width */
+    margin-left: 250px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Subtle pattern overlay */
+.OrderManagerUI::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ===== TOP ROW - BACK BUTTON ===== */
+.topRow {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.turnBack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e8ecf1;
+}
+
+.turnBack::before {
+    content: '←';
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.turnBack:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+    border-color: transparent;
+}
+
+.turnBack:hover::before {
+    transform: translateX(-4px);
+}
+
+/* ===== BOTTOM BOX - MAIN CONTENT ===== */
+.bottomBox {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 36px;
+    box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px; /* Added spacing between boxes */
+}
+
+.bottomBox .BoxTitle {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 25px 0;
+    border-bottom: 2px dashed #e8ecf1;
+    padding-bottom: 15px;
+}
+
+/* ===== GRID DISPLAY ===== */
+.OrdersDetailDisplay {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* ===== ITEM CARD (Adapted for Hot Deals) ===== */
+.OrderItem {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #fafbfc 0%, #f5f7fa 100%);
+    border: 1px solid #e8ecf1;
+    border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.OrderItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.OrderItem:hover {
+    transform: translateY(-8px);
+    box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.12),
+            0 0 0 1px rgba(102, 126, 234, 0.2);
+    border-color: transparent;
+    background: white;
+}
+
+.OrderItem:hover::before {
+    opacity: 1;
+}
+
+/* ===== FORM STYLES (New additions to match the theme) ===== */
+
+.FormGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.InputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.InputGroup label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+/* Styled to match .day_input from original CSS */
+.StyledInput, .StyledFile {
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 2px solid #e8ecf1;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.StyledInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.StyledFile {
+    padding: 9px 16px; /* Slightly less padding for file inputs */
+    background: #f8f9fc;
+}
+
+/* Buttons */
+.ActionBtn {
+    padding: 14px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    min-width: 160px;
+}
+
+.ActionBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.45);
+}
+
+.ActionBtn.danger {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+    margin-top: 10px;
+}
+
+.ActionBtn.danger:hover {
+    box-shadow: 0 6px 25px rgba(239, 68, 68, 0.45);
+}
+
+.ButtonRow {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* ===== HOT DEAL SPECIFIC CARDS ===== */
+.DealImageContainer {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid #e8ecf1;
+    background: #fff;
+}
+
+.DealImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps image ratio */
+    transition: transform 0.5s ease;
+}
+
+.OrderItem:hover .DealImage {
+    transform: scale(1.05);
+}
+
+.DealTitle {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.DealInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: auto; /* Pushes to bottom */
+}
+
+.DiscountBadge {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #b45309;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.OrderBadge {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.DetailLink {
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e8ecf1;
+    border-radius: 8px;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.OrderItem:hover .DetailLink {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* Current Image Preview in Edit Form */
+.CurrentImgPreview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #e8ecf1;
+    margin-bottom: 10px;
+    display: block;
+}

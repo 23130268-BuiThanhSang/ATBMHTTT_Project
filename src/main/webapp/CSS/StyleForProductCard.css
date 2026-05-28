@@ -1,0 +1,149 @@
+
+
+.ProductCard {
+    width:260px;
+    flex-shrink: 0;
+    height:100%;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.ProductCard:hover {
+    transform: translateY(-6px);
+}
+
+/* PHẦN HÌNH ẢNH */
+.ProductImage {
+    position: relative;
+    width: 100%;
+}
+
+.ProductImage img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+/* TAG GIẢM GIÁ */
+.ProductTag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none; /* Quan trọng: để vẫn click được vào ảnh sản phẩm */
+}
+.NewBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* Ép nó nằm bên trái */
+    background: #28a745;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.SpecialOffer {
+    position: absolute;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background: #d70000;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding-right: 10px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.Discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #b00020;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+/* THANH GIÁ TỐT NHẤT NĂM */
+.BestPrice {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #c8102e;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+/* THÔNG TIN DƯỚI */
+.ProductInfo {
+    padding: 12px 14px;
+    color: #333;
+}
+
+.BrandProduct {
+    font-size: 12px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+/* --- ĐÂY LÀ PHẦN DUY NHẤT ĐƯỢC CHỈNH SỬA --- */
+.ProductName {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px 0 8px 0;
+    line-height: 1.3;
+
+    /* Code thêm dấu ... */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Hiện tối đa 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* ------------------------------------------- */
+
+.Rating {
+    font-size: 13px;
+    color: #f5b301;
+}
+
+.ReviewCount {
+    color: #333;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.Price {
+    margin-top: 8px;
+}
+
+.NewPrice {
+    color: #d70000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.OldPrice {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-left: 6px;
+}

@@ -1,0 +1,501 @@
+/* ===== ORDER DETAIL PAGE STYLES ===== */
+
+/* Main Content Area */
+.OrderManagerUI {
+    flex: 1;
+    margin-left: 280px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Subtle pattern overlay */
+.OrderManagerUI::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ===== TOP ROW - BACK BUTTON ===== */
+.topRow {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.turnBack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e8ecf1;
+}
+
+.turnBack::before {
+    content: '←';
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.turnBack:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateX(-4px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+    border-color: transparent;
+}
+
+.turnBack:hover::before {
+    transform: translateX(-4px);
+}
+
+/* ===== ORDER MANAGE CONTAINER ===== */
+.OrderManageContainer {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 40px;
+    box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ORDER HEADER SECTION ===== */
+.OrderHeader {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #f0f2f7;
+    position: relative;
+}
+
+.OrderTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 16px 0;
+}
+
+.OrderID {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 8px 0;
+}
+
+.OrderID span {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 17px;
+}
+
+.OrderDate {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 8px 0;
+}
+
+.OrderDate span {
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Order Status Box */
+.OrderStatusBox {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f7 100%);
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.OrderStatusBox label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.StatusSelect {
+    padding: 10px 40px 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid #e8ecf1;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    min-width: 160px;
+}
+
+.StatusSelect:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.StatusSelect:hover {
+    border-color: #c7d2fe;
+}
+
+/* ===== CUSTOMER INFO BOX ===== */
+.CustomerBox {
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f7 100%);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    border: 1px solid #e8ecf1;
+}
+
+.CustomerBox h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 18px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #e0e4e8;
+}
+
+.CustomerBox p {
+    font-size: 15px;
+    color: #4b5563;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.CustomerBox p::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 14px;
+    color: #667eea;
+    width: 20px;
+}
+
+.CustomerBox p:nth-child(2)::before {
+    content: '\f007'; /* user icon */
+}
+
+.CustomerBox p:nth-child(3)::before {
+    content: '\f095'; /* phone icon */
+}
+
+.CustomerBox p:nth-child(4)::before {
+    content: '\f3c5'; /* map marker icon */
+}
+
+/* ===== ORDER ITEMS CONTAINER ===== */
+.OrderItemsContainer {
+    margin-bottom: 28px;
+}
+
+.OrderItemsContainer h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 16px 0;
+    display: inline-block;
+}
+
+/* Check Stock Button */
+.StoredCheckButton {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-left: 16px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.StoredCheckButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.StoredCheckButton:active {
+    transform: translateY(0);
+}
+
+/* All Items Container */
+.AllItemsContainer {
+    background: #fafbfc;
+    border-radius: 14px;
+    border: 1px solid #e8ecf1;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+/* Individual Order Item */
+.OrderDetailItem {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e8ecf1;
+    transition: all 0.2s ease;
+}
+
+.OrderDetailItem:last-child {
+    border-bottom: none;
+}
+
+.OrderDetailItem:hover {
+    background: white;
+}
+
+.ItemName {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.ItemQty {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.ItemPrice {
+    font-size: 15px;
+    font-weight: 700;
+    color: #059669;
+    text-align: right;
+}
+
+.StoredStatus {
+    font-size: 12px;
+    font-weight: 700;
+    color: #047857;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+}
+
+/* Out of stock variant */
+.StoredStatus.out-of-stock {
+    color: #b91c1c;
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+/* ===== ORDER TOTAL BOX ===== */
+.OrderTotalBox {
+    padding: 24px 28px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px;
+    margin-bottom: 28px;
+    color: white;
+}
+
+.OrderTotalBox p {
+    font-size: 15px;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.OrderTotalBox p strong {
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+.Subtotal {
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.ShippingFee {
+    opacity: 0.9;
+}
+
+.FinalTotal {
+    font-size: 20px ! important;
+    margin-top: 16px ! important;
+    padding-top: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.FinalTotal strong {
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    font-size: 18px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.ActionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.SaveBtn {
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+}
+
+.SaveBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+.SaveBtn:active {
+    transform: translateY(-1px);
+}
+
+/* Optional: Cancel/Delete Button Style */
+.CancelBtn {
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #dc2626;
+    background: white;
+    border: 2px solid #fecaca;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.CancelBtn:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .OrderManagerUI {
+        margin-left: 240px;
+        padding: 24px 28px;
+    }
+
+    .OrderManageContainer {
+        padding: 28px 32px;
+    }
+
+    .OrderDetailItem {
+        grid-template-columns: 1.5fr 0.5fr 1fr 1fr;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .OrderManagerUI {
+        margin-left: 72px;
+        padding: 20px;
+    }
+
+    .OrderManageContainer {
+        padding: 24px;
+        border-radius: 14px;
+    }
+
+    .OrderTitle {
+        font-size: 24px;
+    }
+
+    .OrderDetailItem {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .ItemName {
+        grid-column: 1 / -1;
+    }
+
+    .OrderStatusBox {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .StatusSelect {
+        width: 100%;
+    }
+
+    .ActionButtons {
+        flex-direction: column;
+    }
+
+    .SaveBtn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .OrderManagerUI {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .OrderManageContainer {
+        padding: 20px;
+    }
+
+    .OrderTitle {
+        font-size: 20px;
+    }
+
+    .CustomerBox,
+    .OrderTotalBox {
+        padding: 18px 20px;
+    }
+
+    .OrderDetailItem {
+        padding: 14px 16px;
+    }
+
+    .StoredCheckButton {
+        display: block;
+        margin-left: 0;
+        margin-top: 12px;
+        width: 100%;
+    }
+}

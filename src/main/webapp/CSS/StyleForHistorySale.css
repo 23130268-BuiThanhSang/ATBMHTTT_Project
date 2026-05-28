@@ -1,0 +1,193 @@
+
+/* ====== BODY LỊCH SỬ MUA HÀNG ====== */
+.BodyHistorySale {
+    flex: 1 1 0px;
+    max-width: 900px;
+    width: 100%;
+    margin: 24px 0; /* Cách trên/dưới cho nhẹ nhàng */
+    padding: 36px 32px 30px 32px;
+    background: #f8fafd;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(20,40,80,0.09);
+}
+
+.OrderBlock {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,48,128,0.08);
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    transition: box-shadow 0.2s;
+    border: 1.5px solid #e4eaf7;
+}
+.OrderBlock:hover {
+    box-shadow: 0 6px 30px rgba(0,48,128,0.17);
+}
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px 7px 24px;
+    border-bottom: 1.5px solid #e2e8f0;
+    background:rgba(0, 118, 255, 0.2);
+    border-radius: 14px 14px 0 0;
+}
+.eyebrow {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 4px;
+    letter-spacing: 0.6px;
+}
+.section-title {
+    font-size: 23px;
+    font-weight: 700;
+    color: #005cff;
+}
+.order-code {
+    font-size: 26px;
+    font-weight: bold;
+    color: #0070f3;
+    background: #e3f2fd;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+.status-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+}
+.OrderStatus {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 11px;
+    background: #d3ffd5;
+    color: #238839;
+    box-shadow: 0 1px 2px rgba(42,187,75,.11);
+    margin-bottom: 0;
+}
+.OrderStatus.status-completed {
+    background: #e2ffe7;
+    color: #22c55e;
+}
+.OrderDate {
+    font-size: 13px;
+    color: #1b243d;
+    padding: 2px 0 0 2px;
+}
+.OrderDate span {
+    font-weight: 500;
+    color: #0070f3;
+}
+
+/* ==== LIST SẢN PHẨM TRONG ĐƠN HÀNG: MỖI DÒNG 1 SẢN PHẨM ==== */
+.ListItemProductInHistorySale {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 28px 0 28px;
+}
+
+/* ==== CARD MÓN HÀNG ==== */
+.ItemProductInHistorySale {
+    display: flex;
+    align-items: center;
+    background: #f5f7fc;
+    border-radius: 11px;
+    /*box-shadow: 0 1px 8px rgba(0,68,196,0.8);*/
+    padding: 14px 21px;
+    width: 100%;
+    transition: box-shadow 0.16s;
+}
+.ItemProductInHistorySale:hover {
+    box-shadow: 0 4px 16px rgba(0,98,255,0.4);
+}
+.ItemProductInHistorySale img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 16px;
+    border: 1px solid #e3e8ef;
+    transition: transform 0.18s;
+}
+.ItemProductInHistorySale img:hover {
+    transform: scale(1.12);
+}
+.InforProduct {
+    flex: 1 1 auto;
+}
+.NameProduct {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    /*color: #005cff;*/
+}
+.BrandProduct {
+    font-size: 14px;
+    color: #787878;
+    margin-bottom: 4px;
+}
+.ButtonControl {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.Review {
+    background: deepskyblue;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 7.5px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 3px;
+    box-shadow: 0 1px 8px rgba(36,198,220,0.16);
+    transition: background 0.18s, box-shadow 0.14s;
+}
+.Review:hover {
+    background: linear-gradient(95deg,#441e84 0,#24c6dc 100%);
+    box-shadow: 0 2px 12px rgba(36,198,220,.22);
+}
+
+
+
+/* ========== RESPONSIVE MOBILE ========== */
+@media (max-width: 900px) {
+    .layout.layout-scroll {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100vw;
+    }
+    .AccountLeft, .BodyHistorySale {
+        max-width: 100vw !important;
+        margin: 0 auto 12px auto;
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+    .BodyHistorySale {
+        padding: 16px 3vw 18px 3vw;
+    }
+    .OrderBlock { margin-bottom: 18px; padding-bottom: 7px; }
+    .section-header { padding: 12px 8px 2px 10px; flex-direction: column; align-items: flex-start; gap: 5px;}
+    .ListItemProductInHistorySale { flex-direction: column; padding: 14px 3vw 0 3vw;}
+    .ItemProductInHistorySale { flex-direction: column; align-items: flex-start; width: 100%; padding: 10px 8px;}
+    .ItemProductInHistorySale img { margin-right: 0; margin-bottom: 9px; width: 56px; height: 56px; }
+    .ButtonControl { margin-left: 0; margin-top: 7px;}
+}
+
+/* Không có đơn hàng */
+.NoOrderHistory {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    padding: 50px 0 70px 0;
+    font-style: italic;
+}

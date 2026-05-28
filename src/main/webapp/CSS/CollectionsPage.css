@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    font-family: 'Suggested Font Name', sans-serif;
+}
+.breadcrumb {
+    /*margin-top:58px;*/
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #555;
+}
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.breadcrumb a:hover {
+    color: #007bff;
+}
+.breadcrumb .separator {
+    margin: 0 5px;
+    color: black;
+}
+.breadcrumb .current {
+    color: #000;
+    font-weight: 500;
+}
+
+.MainCollectionBanner{
+    width: 100%;
+    height: 500px;
+    background: #F7F7F7;
+}
+.MainCollectionBanner img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.LowerPart{
+    width: 100%;
+    min-height: 1000px;
+    /*background: #F7F7F7;*/
+    /*display: flex;*/
+    background: white;
+    /*justify-content: center;*/
+    gap: 20px;
+}

@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f5f6fa;
+    font-family: Arial, sans-serif;
+}
+
+.success-box {
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.success-box h1 {
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+.success-box p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+.home-btn {
+    padding: 12px 30px;
+    background: #1D539C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    opacity: 0.9;
+}

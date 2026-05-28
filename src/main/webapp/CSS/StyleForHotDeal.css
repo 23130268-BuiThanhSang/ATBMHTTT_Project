@@ -1,0 +1,166 @@
+
+/**
+Banner lớn
+ */
+.MainBannerHotDeal img{
+    width: 100%;
+    height: 435px;
+}
+.TitleHotDeal{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.SubBannerHotDeal {
+    padding-bottom:10px;
+    border-bottom: 1px solid gray;
+}
+.SubBannerHotDealItem{
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 20px  30px;
+    scroll-behavior: smooth;
+}
+.SubBannerHotDeal img{
+    width: 240px;
+
+}
+
+/*
+đây thực hiện hiển thị sản phẩm và filter sản phẩm
+ */
+.ProductContainer{
+    margin: 30px 35px;
+    height:1170px;
+    display:flex;
+    flex-direction: row;
+    gap:20px;
+    justify-content:flex-start;
+}
+.Filter{
+    width: 300px;
+    padding-right:20px;
+}
+.ListProductForFilter{
+    width: 100%;
+}
+.FilterGroup{
+    border: 1px solid #0066cc;
+}
+.Filter details{
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 128, 255, 0.2);
+    border-radius: 10px;
+    white-space: nowrap;
+}
+.FilterBody{
+    display: flex;
+    flex-direction:column;
+    margin-top: 15px;
+    justify-items: flex-start;
+}
+.FilterItem{
+    margin: 2px;
+    padding: 5px;
+    background:white;
+    border-radius: 15px;
+    border: 1px solid #0066cc;
+}
+.FilterGroup summary{
+    font-weight: bold;
+}
+.ColorBlack:hover{
+    color: white;
+    background-color: black;
+}
+.ColorWhite:hover{
+    background: white;
+}
+.ColorRed:hover{
+    background-color: red;
+    color: white;
+}
+.ColorBlue:hover{
+    background-color: deepskyblue;
+    color: white;
+}
+.ColorYellow:hover{
+    background-color: yellow;
+    color: white;
+}
+.ColorGreen:hover{
+    background-color: green;
+    color: white;
+}
+.ColorGray:hover {
+    background: gray;
+    color: white;
+}
+.HeaderListProductForFilter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.SortListProductForFilter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 8px 14px;
+    font-style: italic;
+    font-weight: bold;
+    color: #001A2D;
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.SortListProductForFilter:hover{
+    border-color: #007BFF;
+    background: rgba(0,123,255,0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.bodyListProductForFilter{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-height: 1000px;
+    /*overflow: hidden;*/
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    transition: max-height 0.5s ease;
+}
+/*đây là chiều cao khi nhấn xem thêm nhưng mà web tĩnh nên chưa có bỏ hiện thực*/
+/*.bodyListProductForFilter.expanded {*/
+/*    max-height:500px;*/
+/*}*/
+.LoadMoreBtn {
+    margin: 20px auto;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: deepskyblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Sale{
+    color:deepskyblue;
+}

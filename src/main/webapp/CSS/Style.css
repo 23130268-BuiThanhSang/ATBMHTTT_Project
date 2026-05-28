@@ -1,0 +1,1603 @@
+#LoginBody{
+    height: 100vh;
+    background: url('../lgImg/gym2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+}
+
+.login{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+.forgotpw{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.forgotpw3{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 390px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.register{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 460px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.register1{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.register3{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 5px;
+    width: 400px;
+    height: 390px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.loginip {
+    width: 300px;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding-left: 15px;
+}
+.loginip::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+.links{
+    width: 100%;
+    overflow: hidden;
+    font-size: 15px;
+}
+.links .left a{
+    color: #F5E779;
+    float: left;
+    margin-left: 50px;
+}
+.links .right a{
+    color: #F5E779;
+    float: right;
+    margin-right: 50px;
+}
+.loginBt:hover{
+    color: #F5E779;
+}
+.loginBt{
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255,255,255,0.7);
+    width: 230px;
+    height: 50px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+}
+.loginTxt{
+    margin-bottom: 15px;
+}
+.homeLink a{
+    color: #F5E779;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+/*SupportCustomer*/
+#SupportHeader{
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.SupportGroup{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.SupportBox{
+    background: linear-gradient(135deg, #0b1f3a 0%, #0f2d54 100%);
+    border-radius: 16px;
+    padding: 24px 22px;
+    min-height: 400px;
+    width: 340px;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+.SupportBox:hover{
+    transform: translateY(-2px);
+    box-shadow:0 14px 28px rgba(0,0,0,0.12),0 4px 10px rgba(0,0,0,0.08);
+}
+
+.SupportTitle{
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.SupportDiv{
+    margin-top: 6px;
+}
+.SupportGuide{
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+    transform: none;
+}
+.SupportQuestion{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #0BD600;
+    transform: none;
+}
+.SupportAnswer{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #40C0FF;
+    transform: none;
+}
+
+
+.SupportConnect{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    gap: 10px;
+    justify-content: center;
+}
+.spSocial{
+    font-size: 16px;
+    color: #222;
+    margin: 0;
+    transform: none;
+}
+
+.SupportCustomer{
+    padding: 16px 12px 28px;
+    background: linear-gradient(180deg, #f7f7f9 0%, #f3f5f7 100%);
+    border-radius: 16px;
+    min-height: 550px;
+}
+
+#HomePageBody {
+    /*font-family: 'Suggested Font Name', sans-serif;*/
+    padding: 0;
+    /*background: chartreuse;*/
+    margin: 0;
+}
+/*MAIN MENU BAR*/
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+
+/* MAIN BAR */
+.MainMenuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #0b1f3a 0%, #0f2d54 100%);
+    padding: 0 32px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    /*border-radius: 0 0 10px 10px;*/
+}
+
+/* LEFT */
+.GroupLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.LogoWrap {
+    display: flex;
+    align-items: center;
+}
+.Logo {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+}
+.NameWebsite {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1fb6ff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* CENTER */
+.GroupCenter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.MenuItem {
+    position: relative;
+}
+.MenuItem > a {
+    display: block;
+    padding: 22px 18px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    border-bottom: 3px solid transparent;
+}
+.MenuItem > a:hover {
+    color: #1fb6ff;
+    background: rgba(31, 182, 255, 0.10);
+    border-bottom-color: #1fb6ff;
+}
+
+/* MEGA BOX */
+.MegaBox {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 620px;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.16);
+    padding: 28px 30px;
+    display: flex;
+    gap: 32px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+}
+.MenuItem:hover .MegaBox {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.MegaBox .Column {
+    flex: 1;
+    min-width: 160px;
+}
+.MegaBox .Column h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0b1f3a;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1fb6ff;
+}
+.MegaBox .Column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.MegaBox .Column ul li a {
+    display: block;
+    padding: 7px 10px;
+    color: #555555;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: all 0.18s ease;
+}
+.MegaBox .Column ul li a:hover {
+    background: #f6f7fb;
+    color: #1fb6ff;
+    padding-left: 16px;
+}
+
+/* RIGHT */
+.GroupRight { display: flex; align-items: center; gap: 14px; }
+
+/* Search */
+.SearchBox {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 7px 12px 7px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.25s ease;
+}
+.SearchBox:focus-within {
+    background: rgba(255,255,255,0.18);
+    border-color: #1fb6ff;
+}
+.SearchBox input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+    width: 150px;
+    transition: width 0.25s ease;
+}
+.SearchBox input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+.SearchBox:focus-within input {
+    width: 200px;
+}
+.SearchBox button {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+.SearchBox button:hover { color: #1fb6ff; }
+
+/* Icon Buttons */
+.IconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    overflow: hidden;
+    line-height: normal;
+}
+.IconBtn:hover {
+    background: #1fb6ff;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+.UserWrap {
+    position: relative;
+}
+
+.UserHoverBox {
+    position: absolute;
+    top: 41px;
+    right: -70px;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 0;
+    display: none;
+    z-index: 999;
+}
+
+.UserWrap:hover .UserHoverBox, .UserHoverBox:hover{
+    display: block;
+}
+
+.HoverItem, .HoverLogout, .HoverUsername {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+}
+
+.HoverItem:hover {
+    background: #f2f2f2;
+}
+
+.HoverLogout{
+    color: dodgerblue;
+}
+
+.HoverLogout:hover{
+    transform: translateY(-1px);
+}
+
+.HoverUsername {
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 4px;
+}
+
+.UserAvatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,122,223,0.13);
+}
+
+
+
+/* Announcement dropdown */
+.Announcement {
+    position: relative;
+}
+.MegaBoxAnnouncement {
+    position: absolute;
+    top: 52px;
+    right: 0;
+    width: 320px;
+    max-height: 380px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.16);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.22s ease;
+    overflow: hidden;
+}
+.Announcement:hover .MegaBoxAnnouncement {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.TitleAnnouncement {
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0b1f3a;
+    background: #f7f8fb;
+    border-bottom: 1px solid #eeeeee;
+}
+.ContentAnnounment {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.ItemAnnouncement {
+    display: block;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.18s ease;
+}
+.ItemAnnouncement:hover {
+    background: #f8f9fb;
+}
+.TitleAnnounce {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0b1f3a;
+    margin-bottom: 4px;
+}
+.DescriptionItemAnnounce {
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.4;
+}
+.subDescriptionAnnounce {
+    display: block;
+    color: #888888;
+    font-size: 12px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .MainMenuBar { padding: 0 18px; }
+    .MenuItem > a { padding: 20px 12px; font-size: 14px; }
+    .MegaBox { min-width: 520px; }
+}
+@media (max-width: 768px) {
+    .MainMenuBar { flex-wrap: wrap; height: auto; padding: 14px; gap: 12px; }
+    .GroupCenter { order: 3; width: 100%;
+        /*justifyment: center; */
+        flex-wrap: wrap;
+    }
+    .MenuItem { width: auto; }
+    .MegaBox { position: fixed; left: 50% !important; min-width: 92vw; max-width: 92vw; top: 70px; }
+    .SearchBox input { width: 120px; }
+}
+
+
+/* Khi thẻ li có class Active (do JS thêm vào), thẻ a sẽ đổi màu */
+.MenuItem.Active > a {
+    color: #1fb6ff !important;            /* Màu xanh thương hiệu */
+    background: rgba(31, 182, 255, 0.1) !important; /* Nền mờ nhạt */
+    border-bottom: 3px solid #1fb6ff !important;    /* Gạch chân */
+    font-weight: bold;
+}
+
+
+
+
+
+
+/*MAIN BANNER*/
+.banner {
+    /*margin-top: 58px;*/
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.BannerSlides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease;
+}
+
+.BannerSlides img {
+    width: 1600px;
+    height: 400px;
+    object-fit: fill;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 0;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+/* thanh điều hướngg*/
+.breadcrumb {
+    /*margin-top: 58px;*/
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #555;
+}
+/**
+thanh điều hướng dùng cho nhiều trang nên để bên đây
+ */
+.breadcrumb a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: deepskyblue;
+}
+
+.breadcrumb .separator {
+    margin: 0 5px;
+    color: black;
+}
+
+.breadcrumb .current {
+    color: #000;
+    font-weight: 500;
+}
+/**
+đây chính là phần hiển thị cho filter và sản phẩm sài cho nhiều trang khác nhau nên để ở đây
+ */
+.ProductContainer {
+    display: flex;
+    gap: 40px;
+    margin: 40px 40px 40px 80px;
+    font-family: 'Inter', sans-serif;
+    align-items: flex-start;
+    min-height: 80vh;
+}
+
+.FilterSidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.FilterHeader {
+    padding: 18px 20px;
+    background: #f8f9fa;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.FilterContent {
+    padding: 10px 20px 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd transparent;
+}
+
+.FilterContent::-webkit-scrollbar {
+    width: 4px;
+}
+
+.FilterContent::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.FilterGroup {
+    border-bottom: 1px solid #f1f1f1;
+    padding: 15px 0;
+}
+
+.FilterGroup:last-child {
+    border-bottom: none;
+}
+
+.FilterGroup summary {
+    list-style: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: #111;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.FilterGroup summary::-webkit-details-marker {
+    display: none;
+}
+
+.FilterGroup summary::after {
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.FilterGroup[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.FilterBody {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.CustomCheckbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    user-select: none;
+}
+
+.CustomCheckbox:hover {
+    color: #000;
+}
+
+.CustomCheckbox input {
+    display: none;
+}
+
+.Checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: 0.2s;
+}
+
+.CustomCheckbox input:checked ~ .Checkmark {
+    background: #222;
+    border-color: #222;
+}
+
+.Checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.CustomCheckbox input:checked ~ .Checkmark::after {
+    display: block;
+}
+
+.ColorGrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ColorSwatch {
+    cursor: pointer;
+}
+
+.ColorSwatch input {
+    display: none;
+}
+
+.SwatchDot {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px transparent;
+    transition: 0.2s;
+}
+
+.ColorSwatch input:checked ~ .SwatchDot {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #222;
+    transform: scale(0.9);
+}
+
+.SizeGrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+.SizeBox span {
+    width: auto !important;
+    min-width: 60px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.SizeBox input {
+    display: none;
+}
+
+.SizeBox span {
+    display: block;
+    min-width: 35px;
+    height: 35px;
+    line-height: 33px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    transition: 0.2s;
+}
+
+.SizeBox input:checked + span {
+    background: #222;
+    color: white;
+    border-color: #222;
+}
+
+.ProductMainArea {
+    flex-grow: 1;
+    min-width: 0;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ProductToolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.SearchWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.SearchWrapper input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    background: #f9f9f9;
+    outline: none;
+    transition: 0.3s;
+}
+
+.SearchWrapper input:focus {
+    background: white;
+    border-color: #bbb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.SearchWrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.SortWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ResultCount {
+    font-size: 14px;
+    color: #666;
+}
+
+.SelectContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.SortSelect {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px 35px 8px 15px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.SortSelect:hover {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+}
+
+.SelectContainer i {
+    position: absolute;
+    right: 12px;
+    font-size: 11px;
+    color: #666;
+    pointer-events: none;
+}
+
+.ProductGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.ProductCard {
+    width: 100%;
+}
+
+.FilterActions {
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ApplyFilterBtn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(135deg, #0b2a4a, #103b66);
+    color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+}
+
+.ApplyFilterBtn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.ClearFilterBtn {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    text-decoration: none;
+}
+
+.ClearFilterBtn:hover {
+    color: #0b2a4a;
+    text-decoration: underline;
+}
+.Pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 64px;
+    margin-bottom: 80px;
+}
+.PageNum {
+    padding: 8px 18px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+}
+.PageNum:hover {
+    background: #0b2a4a;
+    color: #fff;
+    border-color: #0b2a4a;
+}
+.PageNum.Active {
+    background: #0b2a4a;
+    color: #fff;
+    border-color: #0b2a4a;
+    pointer-events: none;
+}
+/*đây là chiều cao khi nhấn xem thêm nhưng mà web tĩnh nên chưa có bỏ hiện thực*/
+/*.bodyListProductForFilter.expanded {*/
+/*    max-height:500px;*/
+/*}*/
+.LoadMoreBtn {
+    margin: 20px auto;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: deepskyblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*
+đến đây là kết thúc phần hiển thị cho filter và sản phẩm của filter rồi
+*/
+
+/*Thanh tìm kiếm sản phẩm  có thể dùng ở nhiều ở các trang tương tự nên để đây bùi thanh sang để*/
+.SearchInPage {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 6px 10px;
+    background-color: #f9f9f9;
+}
+
+.SearchInPage input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.SearchInPage i {
+    color: gray;
+    cursor: pointer;
+}
+/*
+kết thúc */
+
+/*PRODUCT CATEGORIES*/
+.ProductCategories {
+    margin-top: 15px;
+    height: 350px;
+    padding-top: 10px;
+    font-weight: bolder;
+    background: white;
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("lgImg/gb-botanica-gym-link-spaces-slough.jpg");*/
+}
+.ProductCategoriesButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    padding: 20px 0;
+    margin: auto;
+}
+
+.ProductCategoriesButton {
+    opacity: 0.95;
+    background-color: #ECECEC;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    height: 260px;
+    width: 260px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+}
+
+.inner-square {
+    width: 240px;
+    height: 210px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProductCategoriesButton:hover {
+    background-color: #CCCCCC;
+    transform: scale(1.05);
+}
+
+.ProductCategoriesButton img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.ProductCategoriesButton:hover img{
+    transform: scale(1.2);
+}
+
+/*CATEGORIES SHOWCASE*/
+.CategoriesShowcase{
+    /*height: 2500px;*/
+    height: auto;
+    background:white;
+
+}
+.Hotdeal{
+    padding-bottom: 45px;
+}
+.HotdealTitle{
+    padding: 25px 0;
+    margin-left: 30px;
+    font-size: 28px;
+    font-family: 'Suggested Font Name', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+.CategoriesShowcaseHotDealSpecial{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.HotDealSpecial{
+    width: 70%;
+    border-radius: 15px;
+}
+
+.CategoriesShowcaseHotDealNormal {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 15px;
+}
+.CategoriesShowcaseHotDealNormal> a{
+    display: contents;
+}
+.HotDeal1, .HotDeal2{
+    width:35%;
+    border-radius: 15px;
+}
+
+.ProductSection {
+    background: white;
+    width: 100%;
+    color: black;
+    padding: 35px 0;
+    margin-left: 30px;
+}
+
+/*đề mục sản phẩm ưu đãi*/
+.HeaderListProductTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-right: 35px;
+}
+
+.ProductDealTitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 30px;
+    font-style: italic;
+}
+
+.SubProductDealButton {
+    font-style: italic;
+    border: none;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 20px;
+}
+
+.SubProductDealButton:hover {
+    color: #0074D9;
+}
+
+
+.ProductSpecialContainer {
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap: 40px;
+    white-space:nowrap;/*không cho xuống dòng */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+/*món hàng được thực hiện css riêng để có thể sửa và sử dụng ở nhiều trang khác nhau*/
+
+/*Sub Categories*/
+.SubCategories{
+    width: 100%;
+
+}
+.NewCollection{
+    background: white;
+    width: 100%;
+    /*background: white;*/
+    height: 520px;
+    color: black;
+}
+.SpecCollection{
+    background: white;
+    width: 100%;
+    /*background: white;*/
+    height: 450px;
+    color: black;
+}
+.SpecBrand{
+    background: white;
+    width: 100%;
+    /*background: white;*/
+    height: 350px;
+    color: black;
+}
+.Sports{
+    background: white;
+    width: 100%;
+    /*background: white;*/
+    height: 500px;
+    color: black;
+}
+.SubCategoriesTitleContainer{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bolder;
+}
+.SubCategoriesPageLinkButton{
+    float: right;
+    padding-right: 20px;
+    font-style: italic;
+    font-size: 15px;
+    border: none;
+    background: white;
+    font-weight: bold;
+}
+.NewCollectionButtonContainer {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+
+    scrollbar-color: #ccc #fff;
+}
+.NewCollectButton {
+    flex: 0 0 auto;
+    height: 400px;
+    width: 260px;
+    background: #ECECEC ;
+    border: none;
+    transition: linear 0.1s;
+}
+.NewCollectButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.NewCollectButton:hover {
+    transform: scale(1.1);
+}
+.SpecCollectionButtonContainer {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+
+    scrollbar-color: #ccc #fff;
+}
+.SpecCollectButton{
+    flex: 0 0 auto;
+    height: 330px;
+    width: 330px;
+    background: #ECECEC ;
+    border: none;
+    transition: linear 0.1s;
+}
+.SpecCollectButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.SpecCollectButton:hover {
+    transform: scale(1.1);
+}
+.SpecBrandButtonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+
+    overflow: hidden;
+    white-space: normal;
+}
+
+.SpecBrandButton {
+    flex: 0 0 auto;
+    height: 100px;
+    width: 220px;
+    background: #ECECEC;
+    border: none;
+    transition: linear 0.1s;
+}
+.SpecBrandButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.SpecBrandButton:hover {
+    transform: scale(1.1);
+}
+.SportsButtonContainer {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+
+    scrollbar-color: #ccc #fff;
+}
+.SportsButton {
+    flex: 0 0 auto;
+    height: 400px;
+    width: 300px;
+    background: #ECECEC ;
+    border: none;
+    transition: linear 0.1s;
+}
+.SportsButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.SportsButton:hover {
+    transform: scale(1.1);
+}
+
+/*FOOTER UI*/
+.logoft{
+    margin-right: 20px;
+    width: 120px;
+    object-fit: contain;
+}
+
+.descriptionitemsc a{
+    text-decoration: none;
+    color: white;
+}
+.sc{
+    height: 40px;
+    width: 40px;
+}
+
+/**Footer**/
+.footer {
+    background: #051a2e;
+    color: white;
+    padding: 20px 0 10px;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.footer-col {
+    width: 30%;
+    margin-top: 16px;
+    text-align: center;
+}
+.footer-col1 {
+    width: 30%;
+    margin-top: 2px;
+    text-align: center;
+}
+.footer-col2 {
+    width: 30%;
+    margin-top: 23px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+.footer-title {
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.footer-col p {
+    margin: 4px 0;
+    font-size: 15px;
+}
+
+.social-icons img {
+    width: 28px;
+    margin-right: 10px;
+    transition: 0.2s;
+    filter: invert(1);
+}
+
+.social-icons img:hover {
+    transform: scale(1.15);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+.homepage a {
+    color: white;
+    text-decoration: none;
+}
+.homepage a:hover {
+    color: #1a73e8;
+}
+
+.error{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: orangered;
+}
+.success{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: greenyellow;
+}
+
+.loading{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #F5E779;
+}
+
+.message-login, .message-register, .message-forgot {
+    height: 25px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 10px;
+    line-height: 20px;
+}
+
+.message-login .error, .message-register .error, .message-forgot .error {
+    color: orangered;
+    display: block;
+}
+
+.message-register .success, .message-forgot .success {
+    color: greenyellow;
+    display: block;
+    position: relative;
+    top: -10px;
+}
+
+.message-login .loading, .message-register .loading, .message-forgot .loading {
+    color: #F5E779;
+    display: block;
+    position: relative;
+    top: -10px;
+}
+
+.admin-gradient-btn {
+    /* Gradient Background */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    /* Text Styles */
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+
+    /* Shape & Spacing */
+    padding: 10px 20px;
+    border-radius: 30px; /* Rounded pill shape */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+
+    /* Shadow for depth */
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+    transition: all 0.3s ease;
+}
+
+.admin-gradient-btn:hover {
+    transform: translateY(-2px); /* Moves up slightly */
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.6);
+    color: white; /* Keep text white on hover */
+}
+

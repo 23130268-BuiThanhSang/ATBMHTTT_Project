@@ -1,0 +1,721 @@
+
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body {*/
+/*    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-color: #f3f4f6;*/
+/*    color: #333;*/
+/*    line-height: 1.5;*/
+/*}*/
+
+/*.headerForPagePayment {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: 15px 40px;*/
+/*    background-color: #ffffff;*/
+/*    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);*/
+/*    position: sticky;*/
+/*    top: 0;*/
+/*    z-index: 1000;*/
+/*}*/
+
+/*.TitleForPagePayment {*/
+/*    flex-grow: 1;*/
+/*    text-align: center;*/
+/*    font-size: 20px;*/
+/*    font-weight: 800;*/
+/*    color: #111;*/
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 1px;*/
+/*    margin-right: 90px;*/
+/*    background: transparent;*/
+/*}*/
+
+/*.BackParent {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    color: #555;*/
+/*    font-size: 14px;*/
+/*    font-weight: 600;*/
+/*    text-decoration: none;*/
+/*    padding: 8px 20px;*/
+/*    background: #fff;*/
+/*    border: 1px solid #e5e7eb;*/
+/*    border-radius: 8px;*/
+/*    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);*/
+/*    user-select: none;*/
+/*}*/
+
+/*.BackParent:hover {*/
+/*    border-color: #0091ff;*/
+/*    color: #0091ff;*/
+/*    background-color: #f0f9ff;*/
+/*    box-shadow: 0 2px 5px rgba(0, 145, 255, 0.15);*/
+/*}*/
+
+/*.BackParent:active {*/
+/*    transform: scale(0.95);*/
+/*    background-color: #e0f2fe;*/
+/*    box-shadow: none;*/
+/*}*/
+
+/*.BodyForPagePayment {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: flex-start;*/
+/*    gap: 30px;*/
+/*    padding: 40px 20px;*/
+/*    max-width: 1300px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*.InforPayment {*/
+/*    flex: 1;*/
+/*    background: #ffffff;*/
+/*    border-radius: 12px;*/
+/*    padding: 30px;*/
+/*    box-shadow: 0 0 15px 2px rgba(0, 191, 255, 0.15);*/
+/*    height: fit-content;*/
+/*}*/
+
+/*.InforProduct {*/
+/*    flex: 1.5;*/
+/*    background: #ffffff;*/
+/*    border-radius: 12px;*/
+/*    padding: 30px;*/
+/*    box-shadow: 0 0 15px 2px rgba(0, 191, 255, 0.15);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    position: sticky;*/
+/*    top: 90px;*/
+/*    max-height: calc(100vh - 120px);*/
+/*    width: auto;*/
+/*}*/
+
+/*.ChooseTypePayment {*/
+/*    margin-bottom: 30px;*/
+/*    padding-bottom: 20px;*/
+/*    border-bottom: 1px dashed #e5e7eb;*/
+/*}*/
+
+/*.TitleChooseTypePayment,*/
+/*.TitleInforCustomer,*/
+/*.InforProductTitle {*/
+/*    font-size: 18px;*/
+/*    font-weight: 700;*/
+/*    color: #111;*/
+/*    margin-bottom: 15px;*/
+/*}*/
+
+/*.TypePayment {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 12px;*/
+/*}*/
+
+/*.PaymentOption {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    padding: 14px 16px;*/
+/*    border: 1px solid #e5e7eb;*/
+/*    border-radius: 8px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.1s ease;*/
+/*    background: #fff;*/
+/*    user-select: none;*/
+/*}*/
+
+/*.PaymentOption:hover {*/
+/*    border-color: #0091ff;*/
+/*    background-color: #f8fbff;*/
+/*}*/
+
+/*.PaymentOption:active {*/
+/*    transform: scale(0.98);*/
+/*    background-color: #e6f4ff;*/
+/*    border-color: #007acc;*/
+/*}*/
+
+/*.PaymentOption input[type="radio"] {*/
+/*    width: 18px;*/
+/*    height: 18px;*/
+/*    margin-right: 12px;*/
+/*    accent-color: #0091ff;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.PaymentOption span {*/
+/*    font-size: 15px;*/
+/*    font-weight: 500;*/
+/*    color: #374151;*/
+/*}*/
+
+/*.InforCustomer {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 12px;*/
+/*}*/
+
+/*.IforUser {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 5px 0;*/
+/*}*/
+
+/*.IforUser label {*/
+/*    font-size: 14px;*/
+/*    color: #6b7280;*/
+/*    margin-bottom: 4px;*/
+/*}*/
+
+/*.InforCustomerDetail {*/
+/*    font-size: 16px;*/
+/*    font-weight: 600;*/
+/*    color: #111;*/
+/*}*/
+
+/*.AddAddess {*/
+/*    margin-top: 15px;*/
+/*    background-color: #f9fafb;*/
+/*    padding: 20px;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid #e5e7eb;*/
+/*}*/
+
+
+/*.AddAddess label {*/
+/*    font-weight: 600;*/
+/*    font-size: 15px;*/
+/*    color: #374151;*/
+/*    margin-bottom: 10px;*/
+/*    display: block;*/
+/*}*/
+
+
+/*.DefaultAddress {*/
+/*    margin-bottom: 0;*/
+/*    width: 100%;*/
+/*}*/
+
+
+/*.DefaultAddressText {*/
+/*    width: 100%;*/
+/*    padding: 10px 12px;*/
+
+/*    border: 1px solid #d1d5db;*/
+/*    border-radius: 6px;*/
+
+/*    background-color: #ffffff;*/
+/*    color: #1f2937;*/
+/*    font-size: 15px;*/
+
+/*    box-sizing: border-box;*/
+/*    transition: all 0.2s ease;*/
+/*    outline: none;*/
+/*}*/
+
+
+/*.DefaultAddressText:focus {*/
+/*    border-color: #3b82f6;*/
+/*    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);*/
+/*}*/
+
+/*.DefaultAddressText::placeholder {*/
+/*    color: #9ca3af;*/
+/*}*/
+
+/*.ChangeAddress {*/
+/*    background: transparent;*/
+/*    border: 1px solid #0091ff;*/
+/*    color: #0091ff;*/
+/*    padding: 6px 12px;*/
+/*    border-radius: 6px;*/
+/*    font-size: 13px;*/
+/*    font-weight: 600;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.2s;*/
+/*    user-select: none;*/
+/*}*/
+
+/*.ChangeAddress:hover {*/
+/*    background-color: #0091ff;*/
+/*    color: #fff;*/
+/*    box-shadow: 0 2px 8px rgba(0, 145, 255, 0.25);*/
+/*}*/
+
+/*.ChangeAddress:active {*/
+/*    transform: scale(0.95);*/
+/*    background-color: #007acc;*/
+/*    box-shadow: none;*/
+/*}*/
+
+/*.InforProductTitle {*/
+/*    text-align: center;*/
+/*    padding-bottom: 15px;*/
+/*    border-bottom: 2px solid #f3f4f6;*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.InforItemProduct {*/
+/*    flex: 1;*/
+/*    overflow-y: auto;*/
+/*    padding-right: 8px;*/
+/*    margin-bottom: 20px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 8px;*/
+/*}*/
+
+/*.ProductItemInPayment {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 20px;*/
+/*    padding: 15px;*/
+/*    border-radius: 12px;*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #e5e7eb;*/
+/*    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);*/
+/*}*/
+
+/*.ProductItemInPayment:hover {*/
+/*    transform: translateY(-5px);*/
+/*    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);*/
+/*    z-index: 10;*/
+/*    background-color: #e6f7ff;*/
+/*    border-color: #bae0ff;*/
+/*}*/
+
+/*.InforImageProduct img {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    object-fit: cover;*/
+/*    border-radius: 8px;*/
+/*    border: 1px solid #e5e7eb;*/
+/*    background: #fff;*/
+/*}*/
+
+/*.InforMainforProduct {*/
+/*    flex: 1;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    gap: 6px;*/
+/*}*/
+
+/*.ProductItemName {*/
+/*    font-weight: 700;*/
+/*    font-size: 17px;*/
+/*    color: #111;*/
+/*    line-height: 1.4;*/
+/*    display: -webkit-box;*/
+/*    -webkit-line-clamp: 2;*/
+/*    -webkit-box-orient: vertical;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.ProductItemBrand {*/
+/*    font-size: 12px;*/
+/*    color: #0091ff;*/
+/*    text-transform: uppercase;*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*.ProductItemDetail {*/
+/*    font-size: 13px;*/
+/*    color: #6b7280;*/
+/*}*/
+
+/*.ProductItemPrice {*/
+/*    font-size: 18px;*/
+/*    font-weight: 800;*/
+/*    color: #ef4444;*/
+/*    text-align: right;*/
+/*    margin-top: 5px;*/
+/*}*/
+
+/*.BottomOfPayment {*/
+/*    margin-top: auto;*/
+/*    border-top: 2px solid #f3f4f6;*/
+/*    padding-top: 20px;*/
+/*}*/
+
+/*.TotalPaymentProduct {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 12px;*/
+/*    background: transparent;*/
+/*    border: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.TotalPaymentProduct > div {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    font-size: 15px;*/
+/*    color: #4b5563;*/
+/*}*/
+
+/*.TotalPrice {*/
+/*    margin-top: 10px;*/
+/*    padding-top: 15px;*/
+/*    border-top: 1px dashed #d1d5db;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.TotalPrice .ToltalOTP {*/
+/*    font-size: 18px;*/
+/*    font-weight: 700;*/
+/*    color: #111;*/
+/*}*/
+
+/*.TotalPrice span:last-child {*/
+/*    font-size: 28px;*/
+/*    font-weight: 800;*/
+/*    color: #d32f2f;*/
+/*}*/
+
+/*.DisplayButtonConfirm {*/
+/*    margin-top: 25px;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.ConfirmPaymentButton {*/
+/*    width: 100%;*/
+/*    padding: 16px;*/
+/*    font-size: 18px;*/
+/*    font-weight: 700;*/
+/*    color: #fff;*/
+/*    background: linear-gradient(135deg, #0091ff 0%, #0066cc 100%);*/
+/*    border: none;*/
+/*    border-radius: 8px;*/
+/*    cursor: pointer;*/
+/*    box-shadow: 0 4px 10px rgba(0, 145, 255, 0.3);*/
+/*    transition: all 0.2s ease;*/
+/*    text-transform: uppercase;*/
+/*    user-select: none;*/
+/*    outline: none;*/
+/*}*/
+
+/*.ConfirmPaymentButton:hover {*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 6px 15px rgba(0, 145, 255, 0.4);*/
+/*}*/
+
+/*.ConfirmPaymentButton:active {*/
+/*    transform: translateY(1px);*/
+/*    box-shadow: 0 1px 3px rgba(0, 145, 255, 0.2);*/
+/*    background: linear-gradient(135deg, #007acc 0%, #005bb5 100%);*/
+/*}*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.5;
+}
+
+.headerForPagePayment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.TitleForPagePayment {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 90px;
+}
+
+.BackParent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.BackParent:hover {
+    border-color: #0091ff;
+    color: #0091ff;
+    background-color: #f0f9ff;
+    box-shadow: 0 2px 5px rgba(0, 145, 255, 0.15);
+}
+
+.BodyForPagePayment {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.InforPayment {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.InforProduct {
+    flex: 1.5;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 120px);
+}
+
+.TitleInforCustomer,
+.InforProductTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.InforCustomer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.IforUser {
+    display: flex;
+    flex-direction: column;
+}
+
+.IforUser label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.InforCustomerDetail {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+}
+
+.AddAddess {
+    margin-top: 20px;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.AddAddess label {
+    font-weight: 600;
+    font-size: 15px;
+    color: #374151;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.DefaultAddressText {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1f2937;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.DefaultAddressText:focus {
+    border-color: #0091ff;
+    box-shadow: 0 0 0 3px rgba(0, 145, 255, 0.1);
+}
+
+.InforItemProduct {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.InforItemProduct::-webkit-scrollbar {
+    width: 6px;
+}
+
+.InforItemProduct::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.InforItemProduct::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.ProductItemInPayment {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.ProductItemInPayment:hover {
+    border-color: #0091ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ProductItemInPayment img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.ProductItemInPayment > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+}
+
+.ProductItemInPayment > div > div:nth-child(1) {
+    font-weight: 700;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.ProductItemInPayment > div > div:nth-child(2),
+.ProductItemInPayment > div > div:nth-child(3) {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.ProductItemInPayment > div > div:nth-child(4) {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e11d48;
+    margin-top: 4px;
+}
+
+.ProductItemInPayment > div > div:nth-child(5) {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.BottomOfPayment {
+    margin-top: auto;
+    border-top: 2px solid #f3f4f6;
+    padding-top: 20px;
+}
+
+.TotalPaymentProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.TotalPaymentProduct > div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #4b5563;
+}
+
+.TotalPrice {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px dashed #d1d5db;
+    align-items: center;
+}
+
+.TotalPrice .ToltalOTP {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.TotalPrice span:last-child {
+    font-size: 24px;
+    font-weight: 800;
+    color: #d32f2f;
+}
+
+.DisplayButtonConfirm {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.ConfirmPaymentButton {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #0091ff 0%, #0066cc 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 145, 255, 0.3);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.ConfirmPaymentButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 145, 255, 0.4);
+}
+
+.ConfirmPaymentButton:active {
+    transform: translateY(1px);
+    background: #005bb5;
+}

@@ -1,0 +1,579 @@
+/* ===== MANAGE UI PAGE STYLES ===== */
+
+/* Main Content Area */
+.manageUI {
+    flex: 1;
+    margin-left: 280px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Subtle pattern overlay */
+.manageUI::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+            radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ===== HIGHLIGHT BOX - MAIN CARD CONTAINER ===== */
+.HighlightBox {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 32px;
+    box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 1;
+}
+
+/* Box Title */
+.BoxTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 8px 0;
+}
+
+/* ===== BANNER EDITOR SECTION ===== */
+.banner-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.banner-editor label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.banner-editor > select {
+    padding: 12px 40px 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid #e8ecf1;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.banner-editor > select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+/* ===== BANNER BOX - INPUT/DISPLAY ROW ===== */
+.banner-box {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f7 100%);
+    border: 1px solid #e8ecf1;
+    border-radius: 12px;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+
+.banner-box:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Banner Text Inputs */
+.banner-text-left,
+.banner-text-right,
+.banner-text-order {
+    padding: 12px 16px;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    color: #374151;
+    font-family: inherit;
+}
+
+input.banner-text-left,
+input.banner-text-right,
+input.banner-text-order {
+    background: white;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+input.banner-text-left:focus,
+input.banner-text-right:focus,
+input.banner-text-order:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input.banner-text-left::placeholder,
+input.banner-text-right::placeholder,
+input.banner-text-order::placeholder {
+    color: #9ca3af;
+}
+
+.banner-text-left {
+    flex: 2;
+    min-width: 0;
+}
+
+.banner-text-right {
+    flex: 2;
+    min-width: 0;
+}
+
+.banner-text-order {
+    flex: 0.5;
+    min-width: 60px;
+    max-width: 80px;
+    text-align: center;
+}
+
+/* Span variants (display mode) */
+span.banner-text-left,
+span.banner-text-right,
+span.banner-text-order {
+    font-size: 13px;
+    color: #4b5563;
+    word-break: break-all;
+}
+
+span.banner-text-order {
+    font-weight: 700;
+    color: #667eea;
+    background: #eef2ff;
+    border-radius: 6px;
+    padding: 8px 12px;
+}
+
+/* Divider */
+.divider {
+    width: 2px;
+    height: 36px;
+    background: #e0e4e8;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+/* Add Banner Button */
+.add-banner-id-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+    white-space: nowrap;
+    margin-left: 8px;
+}
+
+.add-banner-id-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.45);
+}
+
+.add-banner-id-btn:active {
+    transform: translateY(0);
+}
+
+/* Remove Banner Button */
+.remove-banner-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #dc2626;
+    background: white;
+    border: 2px solid #fecaca;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    white-space: nowrap;
+    margin-left: 8px;
+}
+
+.remove-banner-btn:hover {
+    background: linear-gradient(135deg, #ff4d4d 0%, #d63031 100%);
+    border-color: #ff7675;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(214, 48, 49, 0.5);
+}
+
+
+.remove-banner-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.search-row label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.search-row select {
+    padding: 12px 40px 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid #e8ecf1;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    min-width: 140px;
+}
+
+.search-row select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+/* Input Row */
+.input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 14px;
+    border: 2px solid #e8ecf1;
+    border-radius: 10px;
+    background: white;
+    color: #374151;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.input-row input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.input-row input::placeholder {
+    color: #9ca3af;
+}
+
+/* Search Button */
+#searchButton {
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+    white-space: nowrap;
+}
+
+#searchButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.45);
+}
+
+#searchButton:active {
+    transform: translateY(0);
+}
+
+/* Result Box */
+.result-box {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f7 100%);
+    border: 2px dashed #e0e4e8;
+    border-radius: 12px;
+    min-height: 80px;
+    color: #6b7280;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.result-box:empty::before {
+    content: 'Kết quả tìm kiếm sẽ hiển thị ở đây... ';
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* ===== ALL DISPLAYING BANNER SECTION ===== */
+.all-displaying-banner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.banner-row {
+    margin-bottom: 8px;
+}
+
+.banner-label-left {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Banner Container - Scrollable List */
+.Banner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Custom Scrollbar */
+.Banner-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.Banner-container::-webkit-scrollbar-track {
+    background: #f0f2f7;
+    border-radius: 4px;
+}
+
+.Banner-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+.Banner-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #5a6fd6 0%, #6a4190 100%);
+}
+
+/* Banner items in display mode */
+.Banner-container .banner-box {
+    background: white;
+    border: 1px solid #e8ecf1;
+}
+
+.Banner-container .banner-box:hover {
+    border-color: #02BBE7;
+    background: #fffbfb;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+    .banner-box {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .banner-text-left,
+    .banner-text-right {
+        flex: 1 1 45%;
+    }
+
+    .banner-text-order {
+        flex: 0 0 60px;
+    }
+
+    .add-banner-id-btn,
+    .remove-banner-btn {
+        flex: 0 0 auto;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .manageUI {
+        margin-left: 240px;
+        padding: 24px 28px;
+    }
+
+    .HighlightBox {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manageUI {
+        margin-left: 72px;
+        padding: 20px;
+    }
+
+    .HighlightBox {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .banner-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .banner-text-left,
+    .banner-text-right,
+    .banner-text-order {
+        width: 100%;
+        max-width: none;
+    }
+
+    input.banner-text-left,
+    input.banner-text-right,
+    input.banner-text-order {
+        margin-bottom: 8px;
+    }
+
+    .add-banner-id-btn,
+    .remove-banner-btn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+
+    .search-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-row select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .manageUI {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .HighlightBox {
+        padding: 16px;
+    }
+
+    .BoxTitle {
+        font-size: 16px;
+    }
+
+    .banner-label-left {
+        font-size: 12px;
+    }
+}
+
+/* ===== ADD BANNER FORM REFINEMENTS ===== */
+
+.banner-editor form,
+.banner-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Upload image row emphasis */
+.banner-editor .banner-box:first-of-type {
+    background: linear-gradient(135deg, #eef2ff 0%, #f8f9fc 100%);
+    border-color: #c7d2fe;
+}
+
+/* Checkbox inline refinement */
+.checkbox-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.checkbox-inline input[type="checkbox"] {
+    accent-color: #667eea;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Add Banner submit button emphasis */
+.banner-editor button[type="submit"] {
+    margin-left: auto;
+}
+
+.banner-thumbnail {
+    width: 200px;      /* your choice */
+    height: 100px;     /* your choice */
+    display: block;
+    overflow: hidden;
+}
+
+.banner-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 key line */
+    display: block;
+}

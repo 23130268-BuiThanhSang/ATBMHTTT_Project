@@ -1,0 +1,336 @@
+/* ===== LAYOUT CONTAINER ===== */
+.AdminProductContainer {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* ===== FILTER SIDEBAR (Admin Version) ===== */
+.AdminFilterSidebar {
+    width: 280px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+
+.FilterHeader {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.FilterGroup {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.FilterGroup summary {
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4b5563;
+}
+
+.FilterGroup summary::after {
+    content: '+';
+    font-weight: bold;
+}
+
+.FilterGroup[open] summary::after {
+    content: '-';
+}
+
+.FilterBody {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Radio & Checkbox Styling */
+.CustomRadio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.CustomRadio input {
+    display: none;
+}
+
+.RadioDot {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    position: relative;
+}
+
+.CustomRadio input:checked + .RadioDot {
+    border-color: #667eea;
+}
+
+.CustomRadio input:checked + .RadioDot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+/* Color Grid */
+.ColorGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ColorSwatch {
+    cursor: pointer;
+}
+
+.ColorSwatch input { display: none; }
+
+.SwatchDot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border: 2px solid transparent;
+}
+
+.ColorSwatch input:checked + .SwatchDot {
+    transform: scale(1.1);
+    border-color: #667eea;
+}
+
+/* Size Grid */
+.SizeGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.SizeBox input { display: none; }
+
+.SizeBox span {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.SizeBox input:checked + span {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+.AdminProductMain {
+    flex: 1;
+}
+
+/* Toolbar */
+.AdminToolbar {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.SearchWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.SearchWrapper i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.SearchWrapper input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    outline: none;
+}
+
+.AdminAddBtn {
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ===== PRODUCT GRID (Admin Version) ===== */
+.AdminProductGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.AdminCard {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e8ecf1;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.AdminCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.CardImage {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.CardInfo {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.CardBrand {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.CardName {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    margin: 5px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.CardPrice {
+    color: #e74c3c;
+    font-weight: 700;
+    margin-top: auto;
+}
+
+.CardID {
+    font-size: 11px;
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #555;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Admin Actions Overlay */
+.CardActions {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.ActionBtn {
+    width: 30px;
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.BtnEdit {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+.BtnEdit:hover { background: #c7d2fe; }
+
+.BtnDelete {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+.BtnDelete:hover { background: #fecaca; }
+
+/* Pagination */
+.AdminPagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.PageNum {
+    padding: 8px 14px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #555;
+}
+
+.PageNum.Active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}

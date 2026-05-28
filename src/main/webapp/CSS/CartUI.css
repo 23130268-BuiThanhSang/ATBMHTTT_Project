@@ -1,0 +1,230 @@
+
+.CartUI {
+    background: white;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+
+.CartUI .title { margin-bottom: 16px; }
+.CartUI .title b { font-size: 1.5rem; }
+
+
+.CartUI .card {
+    margin: auto;
+    max-width: 950px;
+    width: 90%;
+    box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 1rem;
+    border: transparent;
+    margin-top: 20px;
+}
+@media (max-width: 767px){
+    .CartUI .card { margin: 24px auto; }
+}
+
+/* Cột trái: cart */
+.CartUI .cart {
+    background-color: #fff;
+    padding: 16px 20px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+@media (max-width: 767px){
+    .CartUI .cart {
+        padding: 16px;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+}
+
+/* Cột phải: summary */
+.CartUI .summary {
+    background-color: #ECEDEC;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 16px;
+    color: rgb(65,65,65);
+}
+@media (max-width: 767px){
+    .CartUI .summary {
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 1rem;
+    }
+}
+.CartUI .summary .col-2 { padding: 0; }
+.CartUI .summary .col-10 { padding: 0; }
+
+/* Lưới hàng sản phẩm */
+.CartUI .MainContent .row {
+    margin: 0;
+}
+
+
+.CartUI .main {
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+}
+.CartUI .col-2,
+.CartUI .col { padding: 0 8px; }
+
+/* Liên kết trong cart */
+.CartUI a { padding: 0 8px; }
+.CartUI a { color: black; }
+.CartUI a:hover { color: black; text-decoration: none; }
+
+/* Phần tử nhỏ */
+.CartUI .close { margin-left: auto; font-size: 0.7rem; }
+.CartUI img { width: 3.5rem; }
+.CartUI .back-to-shop { margin-top: 4.5rem; }
+.CartUI h5 { margin-top: 16px; }
+.CartUI hr { margin-top: 20px; }
+.CartUI form { padding: 10px 0; }
+
+/* Form controls */
+.CartUI select,
+.CartUI input {
+    border: 1px solid rgba(0,0,0,0.137);
+    outline: none;
+    width: 100%;
+    background-color: rgb(247,247,247);
+}
+.CartUI select {
+    padding: 10px 8px;
+    margin-bottom: 12px;
+}
+.CartUI input {
+    padding: 8px;
+    margin-bottom: 12px;
+}
+.CartUI input:focus::-webkit-input-placeholder { color: transparent; }
+
+.CartUI .btn {
+    background: linear-gradient(135deg, #0b1f3a 0%, #0f2d54 100%);
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 16px;
+    padding: 10px;
+    border-radius: 0;
+}
+.CartUI .btn:focus {
+    box-shadow: none;
+    outline: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none;
+}
+.CartUI .btn:hover { color: white; }
+
+.CartUI #code {
+    background-image: linear-gradient(to left, rgba(255,255,255,0.253), rgba(255,255,255,0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+.CartUI #code:hover { cursor: pointer; }
+
+.CartUI .MainContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.CartUI .text-muted { margin-left: 10px; }
+
+/* Voucher popup */
+.CartUI #voucherPopup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+.CartUI #voucherPopup.show { display: flex; }
+
+.CartUI .voucher-box {
+    width: 430px;
+    max-height: 85vh;
+    background: white;
+    padding: 22px;
+    border-radius: 5px;
+    overflow-y: auto;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.25);
+    border: 1.5px solid #B8E6FF;
+}
+.CartUI .voucher-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.CartUI .voucher-header h2 {
+    font-size: 22px;
+    color: #0747A6;
+    font-weight: 700;
+}
+.CartUI .voucher-close {
+    background: red;
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.25s;
+    transform: translateY(-10px);
+}
+.CartUI .voucher-close:hover { cursor: pointer; }
+
+.CartUI .voucher-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+.CartUI .voucher-item {
+    background: linear-gradient(to left, #62D6FF 0%, #3F85FF 100%);
+    padding: 14px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.CartUI .voucher-text {
+    font-size: 14px;
+    color: #003366;
+    padding-right: 10px;
+    transform: translateY(5px);
+}
+.CartUI .voucher-item input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: #388AFF;
+    cursor: pointer;
+    transform: translateY(13px);
+}
+.CartUI #voucher-apply {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #0b1f3a 0%, #0f2d54 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.CartUI #voucherInput { transform: translateY(10px); }
+.CartUI .scrollCart { overflow-y: auto; }
+
