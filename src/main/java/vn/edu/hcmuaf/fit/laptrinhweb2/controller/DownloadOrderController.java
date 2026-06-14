@@ -17,28 +17,43 @@ public class DownloadOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
 
-        // Kiểm tra session và order
+        /**
+         * thục hiện kiểm tra nếu session chưa tồn tại hoặc chưa có dữ liệu đơn hàng (ordwer) thì trả về giò hàng
+         */
         if (session == null || session.getAttribute("order") == null) {
+
             response.sendRedirect("Cart.jsp");
             return;
         }
 
-        // Lấy dữ liệu từ session
+        /**
+         * lấy dữ liệu đơn hàng từ session được tạo từ bên trang DigitalSignatureController để tạo nội dung JSON cho file tải về.
+         */
         Map<String, Object> orderData = (Map<String, Object>) session.getAttribute("order");
         String orderId = (String) orderData.get("id");
 
-        // Gọi Service tạo nội dung JSON
+
+        /**
+         * gọi xuống service nhằm mục đích tạo nội dung jdon cho file tải về
+         * mục đích phân tách service để sau này có thể tái sử dụng cho trang admin
+         */
         String fileContent = signatureService.buildOrderContentForSigning(orderData);
 
-        // ĐỔI SANG ĐUÔI .json
+        /**
+         * sử dụng file json thống nhất trong tool và cả web tránh xảy ra lỗi do khác định dạng giữa các công cụ tạo file json khác nhau, đồng thời dễ dàng quản lý và tái sử dụng sau này.
+         */
         String filename = "DonHang_" + orderId + ".json";
 
-        // ĐỔI CONTENT-TYPE SANG application/json
+        /**
+         * thiết lập header để trình duyệt hiểu đây là file tải về và có tên file theo định dạng đã đặt, đồng thời đảm bảo encoding UTF-8 để tránh lỗi font khi mở file JSON.
+         */
         response.setContentType("application/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
 
-        // Xuất file
+        /**
+         * thực hiện cho người dungfg tải về
+         */
         try (PrintWriter writer = response.getWriter()) {
             writer.write(fileContent);
             writer.flush();

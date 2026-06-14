@@ -5,6 +5,10 @@ import vn.edu.hcmuaf.fit.laptrinhweb2.Cart.CartItem;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * thực hiện áp dụng Singleton Pattern để đảm bảo chỉ có một instance duy nhất của OrderSignatureService trong toàn bộ ứng dụng, giúp tiết kiệm tài nguyên và đảm bảo tính nhất quán khi tạo nội dung JSON cho đơn hàng.
+ * Service này có nhiệm vụ định dạng dữ liệu đơn hàng thành chuỗi JSON chuẩn để phục vụ cho việc tạo file JSON tải về, đồng thời có thể tái sử dụng cho các mục đích khác như quản lý đơn hàng trong trang admin sau này nếu cần thiết.
+ */
 public class OrderSignatureService {
 
     private static OrderSignatureService instance;
@@ -31,7 +35,8 @@ public class OrderSignatureService {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
         sb.append("  \"orderId\": \"").append(orderId).append("\",\n");
-        // Giữ nguyên kiểu số (không có ngoặc kép) cho giá tiền
+
+
         sb.append("  \"totalPrice\": ").append(String.format("%.0f", totalPrice)).append(",\n");
         sb.append("  \"items\": [\n");
 
@@ -40,7 +45,6 @@ public class OrderSignatureService {
                 CartItem item = items.get(i);
                 sb.append("    {\n");
 
-                // Xử lý replace dấu ngoặc kép trong tên sản phẩm (nếu có) để tránh lỗi cú pháp JSON
                 String productName = item.getProductName() != null ? item.getProductName().replace("\"", "\\\"") : "";
 
                 sb.append("      \"productName\": \"").append(productName).append("\",\n");
@@ -50,7 +54,6 @@ public class OrderSignatureService {
                 sb.append("      \"price\": ").append(String.format("%.0f", item.getPrice())).append("\n");
 
                 sb.append("    }");
-                // Nếu chưa phải là item cuối cùng thì thêm dấu phẩy
                 if (i < items.size() - 1) {
                     sb.append(",");
                 }
