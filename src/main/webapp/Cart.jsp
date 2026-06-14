@@ -19,7 +19,7 @@
     <div class="headerShoppingCart">
         GIỎ HÀNG
     </div>
-    <form class="bodyShoppingCart" action="CheckOut" method="post">
+    <form class="bodyShoppingCart" action="DigitalSignature" method="get">
         <div class="ListProductInShoppingCart">
             <div class="ControlForAllItemsProductInShoppingCart">
                 <span class="ListTitle">Danh sách sản phẩm</span>
