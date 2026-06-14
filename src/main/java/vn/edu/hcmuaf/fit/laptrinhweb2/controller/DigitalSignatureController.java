@@ -84,7 +84,12 @@ public class DigitalSignatureController extends HttpServlet {
             orderData.put("totalPrice", totalPrice);
 
             request.setAttribute("user", auth);
-            request.setAttribute("order", orderData);
+
+
+            /**
+             * Lưu dữ liệu đơn hàng vào session để DownloadOrderController có thể truy cập khi người dùng bấm nút tải file JSON.
+             */
+            session.setAttribute("order", orderData);
 
             request.getRequestDispatcher("/DigitalSignature.jsp").forward(request, response);
         } else {

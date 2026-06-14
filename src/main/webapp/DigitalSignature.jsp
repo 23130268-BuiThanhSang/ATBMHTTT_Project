@@ -33,7 +33,7 @@
                 <div>
                     <label class="ds-step-label">Bước 1: Tải và kiểm tra tệp dữ liệu đơn hàng</label>
                     <p class="ds-text-muted">Tải xuống tài liệu PDF/XML của đơn hàng để thực hiện ký số bằng phần mềm ký offline của bạn.</p>
-                    <button type="button" class="ds-btn-outline" onclick="window.location.href='${pageContext.request.contextPath}/download-order?id=${order.id}'">
+                    <button type="button" class="ds-btn-outline" onclick="window.location.href='${pageContext.request.contextPath}/DownloadOrderController?id=${sessionScope.order.id}'">
                         &#11123; Download đơn hàng cần ký
                     </button>
                 </div>
@@ -65,8 +65,8 @@
                 <div class="ds-section-title">Tóm tắt đơn hàng</div>
                 <div style="max-height: 350px; overflow-y: auto; padding-right: 5px;">
                     <c:choose>
-                        <c:when test="${not empty order.items}">
-                            <c:forEach var="item" items="${order.items}">
+                        <c:when test="${not empty sessionScope.order.items}">
+                            <c:forEach var="item" items="${sessionScope.order.items}">
                                 <div class="ds-product-item">
                                     <img src="${item.image}" alt="${item.productName}" class="ds-product-img" onerror="this.src='https://via.placeholder.com/70';">
                                     <div class="ds-product-detail">
@@ -106,7 +106,7 @@
                 <div class="ds-total-row">
                     <span>Thành Tiền:</span>
                     <span class="ds-total-price">
-                        <fmt:formatNumber value="${order.totalPrice}" type="number" pattern="#,##0"/> VNĐ
+                        <fmt:formatNumber value="${sessionScope.order.totalPrice}" type="number" pattern="#,##0"/> VNĐ
                     </span>
                 </div>
 
