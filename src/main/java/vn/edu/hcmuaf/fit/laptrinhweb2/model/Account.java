@@ -16,6 +16,7 @@ public class Account {
     private String accountEmail;
     private String role;
     private String avatarUrl;
+    private String publicKey;
     public Account(int id, String username, String accountName, String password, int accountStatus, String phoneNumber,
                    String accountEmail, String role, String avatarUrl) {
         super();
@@ -86,7 +87,13 @@ public class Account {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+    public String getPublicKey() {
+        return publicKey;
+    }
 
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
+    }
 }
 
 

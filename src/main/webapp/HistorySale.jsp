@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/AccountInfo.css?v=<%=System.currentTimeMillis()%>">
     <link rel="stylesheet" href="CSS/Style.css">
-    <link rel="stylesheet" href="CSS/StyleForHistorySale.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/StyleForHistorySale.css">
 </head>
 <body>
 <jsp:include page="/Share/header.jsp" />
@@ -22,15 +22,15 @@
             </div>
         </div>
         <div class="AccountLeftOption">
-            <a href="AccountInfo.jsp" class="OptionIcon">
+            <a href="${pageContext.request.contextPath}/account" class="OptionIcon">
                 <i class="fa-solid fa-user"></i>
                 <div class="NameOption">Thông tin tài khoản</div>
             </a>
-            <a href="UpdateAccountProfile.jsp" class="OptionIcon">
+            <a href="${pageContext.request.contextPath}/profile" class="OptionIcon">
                 <i class="fa-solid fa-clipboard-user"></i>
                 <div class="NameOption">Cập nhật hồ sơ</div>
             </a>
-            <a href="ChangePassword.jsp" class="OptionIcon">
+            <a href="${pageContext.request.contextPath}/change-password" class="OptionIcon">
                 <i class="fa-solid fa-lock"></i>
                 <div class="NameOption">Đổi mật khẩu</div>
             </a>

@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.laptrinhweb2.Auth;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import vn.edu.hcmuaf.fit.laptrinhweb2.dao.KeyDao;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.Account;
 
 import java.io.IOException;
@@ -23,11 +24,17 @@ public class LoginController extends HttpServlet {
         Account acc = as.login(username, pass);
 
         if(acc != null) {
+            KeyDao keyDao = new KeyDao();
+            String activeKey = keyDao.getActiveKeyByUserId(acc.getId());
+
+            // 2. GÁN KHÓA VÀO ĐỐI TƯỢNG ACCOUNT
+            acc.setPublicKey(activeKey);
             HttpSession session = request.getSession();
             session.setAttribute("auth", acc);
             session.setAttribute("auth_role",acc.getRole());
             response.sendRedirect("Home");
         } else {
+            request.setAttribute("savedUsername", username);
             request.setAttribute("error", "tên tài khoản hoặc mật khẩu không khớp!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
