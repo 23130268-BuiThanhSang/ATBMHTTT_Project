@@ -7,7 +7,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/AccountInfo.css?v=<%=System.currentTimeMillis()%>">
-    <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Style.css">
 </head>
 <body>
 <jsp:include page="/Share/header.jsp" />
@@ -22,11 +22,11 @@
                     </div>
                 </div>
                 <div class="AccountLeftOption">
-                    <a href="AccountInfo.jsp" class="OptionIcon">
+                    <a href="${pageContext.request.contextPath}/account" class="OptionIcon">
                         <i class="fa-solid fa-user"></i>
                         <div class="NameOption">Thông tin tài khoản</div>
                     </a>
-                    <a href="UpdateAccountProfile.jsp" class="OptionIcon">
+                    <a href="${pageContext.request.contextPath}/profile" class="OptionIcon">
                         <i class="fa-solid fa-clipboard-user"></i>
                         <div class="NameOption">Cập nhật hồ sơ</div>
                     </a>
@@ -34,7 +34,7 @@
                         <i class="fa-solid fa-lock"></i>
                         <div class="NameOption">Đổi mật khẩu</div>
                     </div>
-                    <a href="HistorySale.jsp" class="OptionIcon">
+                    <a href="${pageContext.request.contextPath}/order-history" class="OptionIcon">
                         <i class="fa-solid fa-cart-arrow-down"></i>
                         <div class="NameOptionBoldText">Lịch sử mua hàng</div>
                     </a>

@@ -19,7 +19,7 @@
     <div class="BannerSlides" id="BannerSlides">
         <c:forEach var="banner" items="${banners}">
             <a href="${banner.targetUrl}">
-                <img src="${banner.imageUrl}" alt="Banner Image"/>
+                <img src="${root}/${banner.imageUrl}" alt="Banner Image"/>
             </a>
         </c:forEach>
     </div>

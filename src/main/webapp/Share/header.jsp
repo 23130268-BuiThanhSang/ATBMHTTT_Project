@@ -71,7 +71,7 @@
             </c:if>
             <!-- Đã Login -->
             <c:if test="${not empty sessionScope.auth}">
-                <a href="${root}/AccountInfo.jsp" class="IconBtn User">
+                <a href="${root}/account" class="IconBtn User">
                     <img src="${sessionScope.auth.avatarUrl}" alt="avatar" class="UserAvatar">
                 </a>
                 <div class="UserHoverBox">

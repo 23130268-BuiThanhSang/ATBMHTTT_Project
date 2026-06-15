@@ -13,7 +13,7 @@
       style="<c:if test='${activeStep ne "loginPage"}'>display:none;</c:if>"
       action="${pageContext.request.contextPath}/Login" method="post">
     <h2 class="loginTxt">Đăng nhập</h2>
-    <input type="text" name="username" placeholder="nhập tên tài khoản" class="loginip">
+    <input type="text" name="username" placeholder="nhập tên tài khoản" class="loginip" value="${savedUsername}">
     <input type="password" name="pass" placeholder="nhập mật khẩu" class="loginip"><br>
 
     <div class="message-login">
