@@ -100,6 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (btnReportLostKey) {
         btnReportLostKey.addEventListener('click', function () {
             showStatus('clear', '');
+            const currentKeyVal = keyPathInput ? keyPathInput.value.trim() : '';
+
+            if (currentKeyVal === '' || currentKeyVal === 'Chưa tải lên Public Key') {
+                showStatus('error', 'Bạn không thể báo mất khóa trong khi tài khoản chưa tải lên Public Key!');
+                return;
+            }
             if (lostKeyConfirmModal) {
                 lostKeyConfirmModal.style.display = 'flex';
             }

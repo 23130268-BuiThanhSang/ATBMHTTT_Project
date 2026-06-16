@@ -83,6 +83,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <div class="download-tool-container">
+                            <span class="download-label">Nếu bạn chưa có bất cứ Key nào, hãy tải Sign Tool để tạo cặp khóa:</span>
+
+                            <a href="${pageContext.request.contextPath}/Downloads/SignTool.zip" download="SignTool.zip" style="text-decoration: none;">
+                                <button type="button" class="btn-download-tool">
+                                    <i class="fa fa-download"></i> Tải về SignTool (.exe)
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                     <div id="jsSuccessMsg" class="msg-success" style="display: none;"></div>
                     <div id="jsErrorMsg" class="msg-error" style="display: none;"></div>
                     <c:if test="${not empty success}">
