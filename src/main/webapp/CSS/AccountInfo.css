@@ -580,6 +580,41 @@ thực hiện css cho combobox của các tình/ thành phố
     background-color: #bd2130;
 }
 
+.download-tool-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.download-label {
+    font-weight: 500;
+    color: #333333;
+}
+
+.btn-download-tool {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2B7AE6;
+    color: #ffffff;
+    border: none;
+    padding: 0 20px;
+    height: 40px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+    margin-top: 0;
+}
+
+.btn-download-tool:hover {
+    background-color: #27ae60;
+}
+
 
 
 
