@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.laptrinhweb2.services;
 
 import vn.edu.hcmuaf.fit.laptrinhweb2.Cart.CartItem;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.OrderItem;
 
 import java.util.List;
 import java.util.Map;
@@ -65,5 +67,149 @@ public class OrderSignatureService {
         sb.append("}");
 
         return sb.toString();
+    }
+
+    public String buildOrderJsonForSigning(Order order) {
+        if (order == null) return "{}";
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("{\n");
+
+        // ===== ORDER =====
+        sb.append("\t\"order\": {\n");
+        sb.append("\t\t\"id\": ").append(order.getId()).append(",\n");
+        sb.append("\t\t\"user_id\": ").append(order.getUser_id()).append(",\n");
+        sb.append("\t\t\"price\": ").append(formatNumber(order.getPrice())).append(",\n");
+
+        if (order.getOrder_date() != null) {
+            sb.append("\t\t\"order_date\": \"")
+                    .append(order.getOrder_date())
+                    .append("\",\n");
+        } else {
+            sb.append("\t\t\"order_date\": null,\n");
+        }
+
+        String address = order.getAddress() != null
+                ? order.getAddress().replace("\"", "\\\"")
+                : "";
+
+        sb.append("\t\t\"address\": \"").append(address).append("\"\n");
+        sb.append("\t},\n");
+
+        // ===== ORDER DETAIL =====
+        sb.append("\t\"order_details\": [\n");
+
+        List<OrderItem> items = order.getItems();
+
+        if (items != null && !items.isEmpty()) {
+
+            for (int i = 0; i < items.size(); i++) {
+                OrderItem item = items.get(i);
+
+                sb.append("\t\t{\n");
+
+                sb.append("\t\t\t\"id\": ").append(item.getId()).append(",\n");
+                sb.append("\t\t\t\"order_id\": ").append(order.getId()).append(",\n");
+
+                int variantId = (item.getVariant() != null)
+                        ? item.getVariant().getId()
+                        : 0;
+
+                sb.append("\t\t\t\"variant_id\": ").append(variantId).append(",\n");
+                sb.append("\t\t\t\"price\": ").append(formatNumber(item.getPrice())).append(",\n");
+                sb.append("\t\t\t\"quantity\": ").append(item.getQuantity()).append("\n");
+
+                sb.append("\t\t}");
+
+                if (i < items.size() - 1) {
+                    sb.append(",");
+                }
+
+                sb.append("\n");
+            }
+        }
+
+        sb.append("\t]\n");
+
+        sb.append("}");
+
+        return sb.toString();
+    }
+//    public String buildOrderJsonForSigning(Order order) {
+//        if (order == null) return "{}";
+//
+//        StringBuilder sb = new StringBuilder();
+//
+//        sb.append("{");
+//
+//        // ===== ORDER =====
+//        sb.append("\"order\":{");
+//        sb.append("\"id\":").append(order.getId()).append(",");
+//        sb.append("\"user_id\":").append(order.getUser_id()).append(",");
+//        sb.append("\"price\":").append(formatNumber(order.getPrice())).append(",");
+//
+//        if (order.getOrder_date() != null) {
+//            sb.append("\"order_date\":\"").append(order.getOrder_date()).append("\",");
+//        } else {
+//            sb.append("\"order_date\":null,");
+//        }
+//
+//        String address = order.getAddress() != null
+//                ? order.getAddress().replace("\"", "\\\"")
+//                : "";
+//
+//        sb.append("\"address\":\"").append(address).append("\"");
+//        sb.append("},");
+//
+//        // ===== ORDER DETAIL =====
+//        sb.append("\"order_details\":[");
+//
+//        List<OrderItem> items = order.getItems();
+//
+//        if (items != null && !items.isEmpty()) {
+//
+////            items.sort((a, b) -> {
+////                int va = (a.getVariant() != null) ? a.getVariant().getId() : 0;
+////                int vb = (b.getVariant() != null) ? b.getVariant().getId() : 0;
+////                return Integer.compare(va, vb);
+////            });
+//
+//            for (int i = 0; i < items.size(); i++) {
+//                OrderItem item = items.get(i);
+//
+//                sb.append("{");
+//
+//                sb.append("\"id\":").append(item.getId()).append(",");
+//                sb.append("\"order_id\":").append(order.getId()).append(",");
+//
+//                int variantId = (item.getVariant() != null)
+//                        ? item.getVariant().getId()
+//                        : 0;
+//
+//                sb.append("\"variant_id\":").append(variantId).append(",");
+//                sb.append("\"price\":").append(formatNumber(item.getPrice())).append(",");
+//                sb.append("\"quantity\":").append(item.getQuantity());
+//
+//                sb.append("}");
+//
+//                if (i < items.size() - 1) {
+//                    sb.append(",");
+//                }
+//            }
+//        }
+//
+//        sb.append("]");
+//
+//        sb.append("}");
+//
+//        return sb.toString();
+//    }
+
+    private String formatNumber(double number) {
+        if (number == (long) number) {
+            return String.valueOf((long) number);
+        }
+        return String.valueOf(number);
     }
 }

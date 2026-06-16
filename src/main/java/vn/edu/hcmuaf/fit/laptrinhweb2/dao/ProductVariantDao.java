@@ -16,13 +16,15 @@ public class ProductVariantDao extends BaseDao {
     }
 
     public ProductVariant getById(int id) {
-        return get().withHandle(h ->
+        ProductVariant p = get().withHandle(h ->
                 h.createQuery("SELECT id, product_id, color, size, price, stock FROM product_variant WHERE id = :id")
                         .bind("id", id)
                         .mapToBean(ProductVariant.class)
                         .findFirst()
                         .orElse(null)
         );
+        loadImages(p);
+        return p;
     }
 
     public int addProductVariant(ProductVariant variant) {
@@ -63,7 +65,7 @@ public class ProductVariantDao extends BaseDao {
         List<ProductVariantImage> images =
                 get().withHandle(h ->
                         h.createQuery(
-                                        "SELECT id, product_id, variant_id AS variantId, image_url AS imageUrl " +
+                                        "SELECT id, variant_id AS variantId, image_url AS imageUrl " +
                                                 "FROM product_variant_image WHERE variant_id = :variantId"
                                 )
                                 .bind("variantId", variant.getId())

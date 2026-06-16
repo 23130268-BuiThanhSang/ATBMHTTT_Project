@@ -19,7 +19,7 @@
     <div class="headerShoppingCart">
         GIỎ HÀNG
     </div>
-    <form class="bodyShoppingCart" action="DigitalSignature" method="get">
+    <form class="bodyShoppingCart" action="CreateOrder" method="post">
         <div class="ListProductInShoppingCart">
             <div class="ControlForAllItemsProductInShoppingCart">
                 <span class="ListTitle">Danh sách sản phẩm</span>
@@ -96,21 +96,12 @@
                 <div class="SummaryRow">
                     <span>Email: ${sessionScope.auth.accountEmail}</span>
                 </div>
-<%--                <div class="SummaryRow">--%>
-<%--                    <span>Mô tả thêm (nếu có): </span>--%>
-<%--                </div>--%>
-<%--                <div class="SummaryRow">--%>
-<%--                    <textarea name="note" rows="7"--%>
-<%--                              placeholder="Thời gian giao, địa điểm cụ thể..."--%>
-<%--                              class="order-note"></textarea>--%>
-<%--                </div>--%>
                 <div class="SummaryRow">Tổng thành tiền:<span id="totalPrice">0 đ</span>
                 </div>
             </div>
             <div class="OrderButtons">
                 <button type="submit" class="ContinueButton">
                     Đặt hàng</button>
-<%--                <button type="button" class="ContinueButton" id="placeOrderBtn">Đặt hàng</button>--%>
             </div>
         </div>
     </form>

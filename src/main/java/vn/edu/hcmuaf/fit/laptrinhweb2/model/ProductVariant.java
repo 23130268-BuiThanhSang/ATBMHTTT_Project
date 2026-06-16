@@ -71,7 +71,11 @@ public class ProductVariant{
     public void setImages(List<ProductVariantImage> images) {
         this.images = images;
     }
-
+    public String getTopImage(){
+        String topImageUrl = images.size() > 0 ? images.get(0).getImageUrl() : "default-image.jpg";
+        System.out.println("topImageUrl: " + topImageUrl);
+        return topImageUrl;
+    }
     public String getSizeString() {
         int fake_size = size;
         String real_size = String.valueOf(fake_size);

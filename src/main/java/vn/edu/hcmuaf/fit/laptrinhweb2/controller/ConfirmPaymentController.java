@@ -24,7 +24,7 @@ public class ConfirmPaymentController extends HttpServlet {
     ProductService productService = new ProductService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendRedirect("Cart.jsp");
     }
 
     @Override
@@ -64,7 +64,7 @@ public class ConfirmPaymentController extends HttpServlet {
         order.setItems(orderItems);
 
 
-        orderService.addOrder(order);
+        int order_id = orderService.addOrder(order);
 
 
         cart.getItems().removeIf(CartItem::isSelected);

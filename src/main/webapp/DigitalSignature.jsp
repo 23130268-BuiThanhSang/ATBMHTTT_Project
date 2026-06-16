@@ -33,26 +33,14 @@
                 <div>
                     <label class="ds-step-label">Bước 1: Tải và kiểm tra tệp dữ liệu đơn hàng</label>
                     <p class="ds-text-muted">Tải xuống tài liệu PDF/XML của đơn hàng để thực hiện ký số bằng phần mềm ký offline của bạn.</p>
-                    <button type="button" class="ds-btn-outline" onclick="window.location.href='${pageContext.request.contextPath}/DownloadOrderController?id=${sessionScope.order.id}'">
+                    <button type="button" class="ds-btn-outline" onclick="window.location.href='${pageContext.request.contextPath}/DownloadOrderController?orderId=${order.id}'">
                         &#11123; Download đơn hàng cần ký
                     </button>
                 </div>
                 <hr class="ds-divider">
-                <div>
-                    <label class="ds-step-label">Bước 2: Khai báo thuật toán</label>
-                    <div style="display: flex; gap: 20px; margin-top: 10px; max-width: 150px">
-                        <div style="flex:1;">
-                            <select class="ds-form-control" name="algorithm">
-                                <option value="RSA">RSA</option>
-                                <option value="DSA">DSA</option>
-                            </select>
-                        </div>
 
-                    </div>
-                </div>
-                <hr class="ds-divider">
                 <div>
-                    <label class="ds-step-label">Bước 3: Tải lên Chữ ký / Tệp đã ký</label>
+                    <label class="ds-step-label">Bước 2: Tải lên Chữ ký / Tệp đã ký</label>
                     <input type="file" class="ds-form-control" name="signatureFile" accept=".sig" required>
                     <p style="font-size: 12px; color: #d9534f; margin-top: 8px; font-weight: 500;">
                         * Chỉ tải lên file chứa chữ ký điện tử (.sig).
@@ -65,13 +53,13 @@
                 <div class="ds-section-title">Tóm tắt đơn hàng</div>
                 <div style="max-height: 350px; overflow-y: auto; padding-right: 5px;">
                     <c:choose>
-                        <c:when test="${not empty sessionScope.order.items}">
-                            <c:forEach var="item" items="${sessionScope.order.items}">
+                        <c:when test="${not empty order.items }">
+                            <c:forEach var="item" items="${order.items}">
                                 <div class="ds-product-item">
-                                    <img src="${item.image}" alt="${item.productName}" class="ds-product-img" onerror="this.src='https://via.placeholder.com/70';">
+                                    <img src="${item.variant.getTopImage()}" alt="${item.product.name}" class="ds-product-img" onerror="this.src='https://via.placeholder.com/70';">
                                     <div class="ds-product-detail">
-                                        <span class="ds-product-name">${item.productName}</span>
-                                        <span class="ds-product-meta">Màu: ${item.color} | Size: ${item.size}</span>
+                                        <span class="ds-product-name">${item.product.name}</span>
+                                        <span class="ds-product-meta">Màu: ${item.variant.color} | Size: ${item.variant.size}</span>
                                         <div style="display: flex; justify-content: space-between; margin-top: 8px;">
                                             <span style="font-size: 14px; color: #555;">
                                                 <fmt:formatNumber value="${item.price}" type="number" pattern="#,##0"/> đ
@@ -106,7 +94,7 @@
                 <div class="ds-total-row">
                     <span>Thành Tiền:</span>
                     <span class="ds-total-price">
-                        <fmt:formatNumber value="${sessionScope.order.totalPrice}" type="number" pattern="#,##0"/> VNĐ
+                        <fmt:formatNumber value="${order.price}" type="number" pattern="#,##0"/> VNĐ
                     </span>
                 </div>
 
