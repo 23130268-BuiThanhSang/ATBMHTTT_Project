@@ -1,9 +1,18 @@
 package vn.edu.hcmuaf.fit.laptrinhweb2.services;
 
 import vn.edu.hcmuaf.fit.laptrinhweb2.Cart.CartItem;
+import vn.edu.hcmuaf.fit.laptrinhweb2.dao.KeyDao;
+import vn.edu.hcmuaf.fit.laptrinhweb2.dao.VerifyDao;
+import vn.edu.hcmuaf.fit.laptrinhweb2.enum_macro.VerifyStatus;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.DTO.OrderDTO;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.OrderItem;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.VerifyIfor;
 
+import java.nio.charset.StandardCharsets;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +23,10 @@ import java.util.Map;
 public class OrderSignatureService {
 
     private static OrderSignatureService instance;
+    private final KeyDao keyDao = new KeyDao();
+    private final VerifyDao verifyDao = new VerifyDao();
 
-    private OrderSignatureService() {}
+    public OrderSignatureService() {}
 
     public static synchronized OrderSignatureService getInstance() {
         if (instance == null) {
@@ -211,5 +222,91 @@ public class OrderSignatureService {
             return String.valueOf((long) number);
         }
         return String.valueOf(number);
+    }
+
+    public boolean verifyOrderSignature(Order order, byte[] signatureBytes, String publicKeyStr) throws Exception {
+        if (order == null || signatureBytes == null || publicKeyStr == null || publicKeyStr.trim().isEmpty()) {
+            System.out.println("something null in verify method parameter");
+            return false;
+        }
+
+        String expectedJson = this.buildOrderJsonForSigning(order);
+
+        PublicKey publicKey = KeyDao.convertStringToRSAPublicKey(publicKeyStr);
+
+        Signature verifier = Signature.getInstance("SHA256withRSA");
+        verifier.initVerify(publicKey);
+        verifier.update(expectedJson.getBytes(StandardCharsets.UTF_8));
+
+        return verifier.verify(signatureBytes);
+    }
+
+    public boolean verifyAndSaveOrderSignature(Order order, byte[] signatureBytes, int userId) throws Exception {
+        String activeKeyStr = keyDao.getActiveKeyByUserId(userId);
+        Integer activeKeyId = keyDao.getActiveKeyIdByUserId(userId);
+
+        if (activeKeyStr == null || activeKeyId == null) {
+            return false;
+        }
+
+        String expectedJson = this.buildOrderJsonForSigning(order);
+        PublicKey publicKey = KeyDao.convertStringToRSAPublicKey(activeKeyStr);
+
+        Signature verifier = Signature.getInstance("SHA256withRSA");
+        verifier.initVerify(publicKey);
+        verifier.update(expectedJson.getBytes(StandardCharsets.UTF_8));
+
+        boolean isValid = verifier.verify(signatureBytes);
+
+        if (isValid) {
+            String base64Signature = Base64.getEncoder().encodeToString(signatureBytes);
+            verifyDao.updateVerifyStatusByOrderId(order.getId(), VerifyStatus.VERIFIED, activeKeyId, base64Signature);
+        } else {
+            verifyDao.updateVerifyStatusByOrderId(order.getId(), VerifyStatus.ERROR, null, null);
+        }
+
+        return isValid;
+    }
+
+    public OrderDTO toOrderDTO(Order order) {
+        if (order == null) return null;
+        VerifyIfor vInfo = verifyDao.getByOrderId(order.getId());
+        if (vInfo == null) {
+            return new OrderDTO(order, VerifyStatus.UNVERIFIED, null, null, null);
+        }
+
+        return new OrderDTO(
+                order,
+                vInfo.getVerifyStatus(),
+                vInfo.getKeyId(),
+                vInfo.getSignature(),
+                vInfo.getDateVerify()
+        );
+    }
+
+    public void validateDTO(OrderDTO dto) {
+        if (dto.getVerifyStatus() == VerifyStatus.UNVERIFIED) return;
+        try {
+            String expectedJson = buildOrderJsonForSigning(dto.getOrder());
+            String historicalKeyStr = keyDao.getKeyById(dto.getKeyId());
+
+            if (historicalKeyStr == null) {
+                dto.setVerifyStatus(VerifyStatus.ERROR);
+                return;
+            }
+
+            byte[] signatureBytes = Base64.getDecoder().decode(dto.getSignature());
+            PublicKey publicKey = KeyDao.convertStringToRSAPublicKey(historicalKeyStr);
+
+            Signature verifier = Signature.getInstance("SHA256withRSA");
+            verifier.initVerify(publicKey);
+            verifier.update(expectedJson.getBytes(StandardCharsets.UTF_8));
+
+            if (!verifier.verify(signatureBytes)) {
+                dto.setVerifyStatus(VerifyStatus.ERROR);
+            }
+        } catch (Exception e) {
+            dto.setVerifyStatus(VerifyStatus.ERROR);
+        }
     }
 }

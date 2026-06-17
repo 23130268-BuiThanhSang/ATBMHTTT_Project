@@ -106,6 +106,7 @@ public class CreateOrderBeforeSignatureController extends HttpServlet {
              * tạo bản ghi verify với thông tin orderId, verifyStatus là UNVERIFIED, keyId là null, dateVerify là thời điểm tạo đơn hàng, sau đó lưu vào database để phục vụ cho trang admin hiển thị trạng thái verify của đơn hàng và cập nhật trạng thái verify sau khi admin đã kiểm tra và xác nhận đơn hàng
              */
             VerifyIfor verifyInfo = new VerifyIfor();
+
             verifyInfo.setVerifyStatus(VerifyStatus.UNVERIFIED);
 
             int orderId = orderService.addOrderBeforeSignature(order, verifyInfo);

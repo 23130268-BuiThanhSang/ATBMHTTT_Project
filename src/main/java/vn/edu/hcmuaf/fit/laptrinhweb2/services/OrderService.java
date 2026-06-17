@@ -68,46 +68,5 @@ public class OrderService {
         return orderId;
     }
 
-    public static boolean verifyFile(String algo, byte[] pubKeyBytes, String filePath, String sigFilePath) throws Exception {
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(pubKeyBytes);
-        KeyFactory kf = KeyFactory.getInstance(algo);
-        PublicKey publicKey = kf.generatePublic(spec);
-
-        String signAlgo = "RSA".equals(algo) ? "SHA256withRSA" : "SHA1withDSA";
-
-        Signature verifier = Signature.getInstance(signAlgo);
-        verifier.initVerify(publicKey);
-
-        try (FileInputStream fis = new FileInputStream(filePath);
-             BufferedInputStream bis = new BufferedInputStream(fis)) {
-            byte[] buffer = new byte[1024];
-            int len;
-            while ((len = bis.read(buffer)) != -1) {
-                verifier.update(buffer, 0, len);
-            }
-        }
-
-        byte[] signatureBytes = Files.readAllBytes(new File(sigFilePath).toPath());
-
-        return verifier.verify(signatureBytes);
-    }
-
-    public static boolean verifyText(String algo, byte[] pubKeyBytes, String inputText, String base64Signature) throws Exception {
-
-        X509EncodedKeySpec spec = new X509EncodedKeySpec(pubKeyBytes);
-        KeyFactory kf = KeyFactory.getInstance(algo);
-        PublicKey publicKey = kf.generatePublic(spec);
-
-        String signAlgo = "RSA".equals(algo) ? "SHA256withRSA" : "SHA1withDSA";
-
-        Signature verifier = Signature.getInstance(signAlgo);
-        verifier.initVerify(publicKey);
-
-        verifier.update(inputText.getBytes(StandardCharsets.UTF_8));
-
-        byte[] signatureBytes = Base64.getDecoder().decode(base64Signature.trim());
-
-        return verifier.verify(signatureBytes);
-    }
 }
 

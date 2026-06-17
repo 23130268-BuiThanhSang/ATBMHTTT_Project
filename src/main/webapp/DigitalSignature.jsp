@@ -25,7 +25,7 @@
     </c:if>
 
     <form action="${pageContext.request.contextPath}/sign-process" method="POST" enctype="multipart/form-data">
-
+        <input type="hidden" name="orderId" value="${order.id}">
         <div class="ds-layout">
             <%-- QUY TRÌNH KÝ SỐ --%>
             <div class="ds-card ds-left">

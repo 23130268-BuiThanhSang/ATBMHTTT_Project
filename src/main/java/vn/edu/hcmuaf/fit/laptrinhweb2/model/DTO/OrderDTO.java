@@ -1,30 +1,25 @@
-package vn.edu.hcmuaf.fit.laptrinhweb2.model;
+package vn.edu.hcmuaf.fit.laptrinhweb2.model.DTO;
 
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
 import vn.edu.hcmuaf.fit.laptrinhweb2.enum_macro.VerifyStatus;
 import java.sql.Timestamp;
 
-public class VerifyIfor {
-    private int id;
+public class OrderDTO {
+    private Order order;
     private VerifyStatus verifyStatus;
     private Integer keyId;
-    private int orderId;
     private String signature;
     private Timestamp dateVerify;
 
-    public VerifyIfor() {
-    }
-
-    public VerifyIfor(int id, VerifyStatus verifyStatus, Integer keyId, int orderId, Timestamp dateVerify) {
-        this.id = id;
+    public OrderDTO(Order order, VerifyStatus verifyStatus, Integer keyId, String signature, Timestamp dateVerify) {
+        this.order = order;
         this.verifyStatus = verifyStatus;
         this.keyId = keyId;
-        this.orderId = orderId;
+        this.signature = signature;
         this.dateVerify = dateVerify;
     }
-
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
+    public Order getOrder() { return order; }
+    public void setOrder(Order order) { this.order = order; }
 
     public VerifyStatus getVerifyStatus() { return verifyStatus; }
     public void setVerifyStatus(VerifyStatus verifyStatus) { this.verifyStatus = verifyStatus; }
@@ -32,10 +27,9 @@ public class VerifyIfor {
     public Integer getKeyId() { return keyId; }
     public void setKeyId(Integer keyId) { this.keyId = keyId; }
 
-    public int getOrderId() { return orderId; }
-    public void setOrderId(int orderId) { this.orderId = orderId; }
     public String getSignature() { return signature; }
     public void setSignature(String signature) { this.signature = signature; }
+
     public Timestamp getDateVerify() { return dateVerify; }
     public void setDateVerify(Timestamp dateVerify) { this.dateVerify = dateVerify; }
 }

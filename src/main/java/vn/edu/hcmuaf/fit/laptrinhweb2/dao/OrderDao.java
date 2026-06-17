@@ -1,14 +1,16 @@
 package vn.edu.hcmuaf.fit.laptrinhweb2.dao;
 
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.DTO.OrderDTO;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.OrderItem;
+import vn.edu.hcmuaf.fit.laptrinhweb2.services.OrderSignatureService;
 
 import java.util.List;
 
 public class OrderDao extends BaseDao {
 
     private final OrderItemDao orderItemDao = new OrderItemDao();
-
+    private final OrderSignatureService orderSignatureService = new OrderSignatureService();
     public List<Order> getAll() {
         return get().withHandle(handle -> {
 
@@ -18,8 +20,12 @@ public class OrderDao extends BaseDao {
                     .list();
 
             // attach order items
+            System.out.println("Start Batch");
             for (Order o : orders) {
                 o.setItems(orderItemDao.getByOrderId(o.getId()));
+//                OrderDTO orderDTO = orderSignatureService.toOrderDTO(o);
+//                orderSignatureService.validateDTO(orderDTO);
+//                System.out.println(orderDTO.getVerifyStatus().toString());
             }
 
             return orders;

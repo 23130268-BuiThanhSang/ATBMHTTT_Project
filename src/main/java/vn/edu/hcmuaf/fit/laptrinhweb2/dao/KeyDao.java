@@ -1,5 +1,10 @@
 package vn.edu.hcmuaf.fit.laptrinhweb2.dao;
 
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
+
 public class KeyDao extends BaseDao {
 
     /**
@@ -64,5 +69,41 @@ public class KeyDao extends BaseDao {
                         .findOne()
                         .orElse(null)
         );
+    }
+    public Integer getActiveKeyIdByUserId(int userId) {
+        return get().withHandle(handle ->
+                handle.createQuery("SELECT id FROM key_info WHERE user_id = :userId AND key_status = 'ACTIVE' LIMIT 1")
+                        .bind("userId", userId)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
+    public String getKeyById(int id) {
+        return get().withHandle(handle ->
+                handle.createQuery("SELECT public_key FROM key_info WHERE id = :id")
+                        .bind("id", id)
+                        .mapTo(String.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
+    public static PublicKey convertStringToRSAPublicKey(String keyStr) throws Exception {
+        if (keyStr == null || keyStr.trim().isEmpty()) {
+            throw new IllegalArgumentException("Dữ liệu chuỗi khóa đầu vào không được trống!");
+        }
+
+        String cleanKey = keyStr
+                .replace("-----BEGIN PUBLIC KEY-----", "")
+                .replace("-----END PUBLIC KEY-----", "")
+                .replaceAll("\\s", "");
+
+        byte[] keyBytes = Base64.getDecoder().decode(cleanKey);
+
+        X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+
+        return kf.generatePublic(spec);
     }
 }
