@@ -45,16 +45,17 @@ public class VerifyDao extends BaseDao {
      * @param orderId
      * @param status
      */
-    public void updateVerifyStatusByOrderId(int orderId, VerifyStatus status, Integer keyId) {
+    public void updateVerifyStatusByOrderId(int orderId, VerifyStatus status, Integer keyId, String signature) {
         get().withHandle(handle ->
                 handle.createUpdate(
                                 "UPDATE verify_ifo " +
-                                        "SET verify_status = :status, key_id = :keyId " +
+                                        "SET verify_status = :status, key_id = :keyId, signature = :signature, date_verify = CURRENT_TIMESTAMP " +
                                         "WHERE order_id = :orderId"
                         )
-                        .bind("status", status)
+                        .bind("status", status.name()) // Use .name() to bind Enum securely as a String
                         .bind("orderId", orderId)
                         .bind("keyId", keyId)
+                        .bind("signature", signature)
                         .execute()
         );
     }
