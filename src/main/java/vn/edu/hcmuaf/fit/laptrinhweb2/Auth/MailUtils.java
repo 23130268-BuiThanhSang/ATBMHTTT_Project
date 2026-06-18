@@ -32,9 +32,9 @@ public class MailUtils {
                     InternetAddress.parse(toEmail)
             );
 
-            message.setSubject("SPGYM - OTP đăng ký tài khoản");
+            message.setSubject("SPGYM - OTP Đăng Ký/Quên Mật Khẩu SPGYM");
 
-            message.setText("OTP Đăng ký tài khoản SPGYM: " + otp +
+            message.setText("OTP Đăng Ký/Quên Mật Khẩu: " + otp +
                     "\nHiệu lực trong vòng 3 phút.\nVui lòng nhập trước khi hết hạn.");
 
             Transport.send(message);
