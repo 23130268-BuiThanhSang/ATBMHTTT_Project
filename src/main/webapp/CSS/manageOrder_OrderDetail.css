@@ -499,3 +499,85 @@
         width: 100%;
     }
 }
+
+/* ===== SIGNATURE AUDIT STYLING ===== */
+.SignatureAuditBlock {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+}
+
+.SignatureAuditBlock h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.SignatureAuditBlock h3 i {
+    color: #6366f1;
+}
+
+.AuditGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.AuditItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.AuditItem.FullWidth {
+    grid-column: 1 / -1;
+}
+
+.AuditLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.AuditValue {
+    font-size: 14px;
+    color: #334155;
+    font-weight: 500;
+}
+
+/* Reusing the matching badge system from list pages */
+.DetailSecurityBadge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+
+.security-UNVERIFIED { background: #cbd5e1; color: #475569; }
+.security-VERIFIED { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.security-ERROR { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; font-weight: 900; }
+
+/* Signature string container box */
+.SignatureHashBox {
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    word-break: break-all;
+    max-height: 80px;
+    overflow-y: auto;
+    border: 1px solid #334155;
+}

@@ -23,9 +23,6 @@ public class OrderDao extends BaseDao {
             System.out.println("Start Batch");
             for (Order o : orders) {
                 o.setItems(orderItemDao.getByOrderId(o.getId()));
-//                OrderDTO orderDTO = orderSignatureService.toOrderDTO(o);
-//                orderSignatureService.validateDTO(orderDTO);
-//                System.out.println(orderDTO.getVerifyStatus().toString());
             }
 
             return orders;

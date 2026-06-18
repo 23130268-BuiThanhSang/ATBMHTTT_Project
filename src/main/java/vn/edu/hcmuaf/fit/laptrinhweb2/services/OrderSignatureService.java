@@ -12,6 +12,7 @@ import vn.edu.hcmuaf.fit.laptrinhweb2.model.VerifyIfor;
 import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
 import java.security.Signature;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
@@ -308,5 +309,19 @@ public class OrderSignatureService {
         } catch (Exception e) {
             dto.setVerifyStatus(VerifyStatus.ERROR);
         }
+    }
+
+    public List<OrderDTO> prepareOrderDTOList(List<Order> orders) {
+        List<OrderDTO> dtoList = new ArrayList<>();
+
+        if (orders == null) return dtoList;
+
+        for (Order order : orders) {
+            OrderDTO dto = toOrderDTO(order);
+            validateDTO(dto);
+            dtoList.add(dto);
+        }
+
+        return dtoList;
     }
 }

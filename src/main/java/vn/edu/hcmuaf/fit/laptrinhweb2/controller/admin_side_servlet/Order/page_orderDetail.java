@@ -3,8 +3,10 @@ package vn.edu.hcmuaf.fit.laptrinhweb2.controller.admin_side_servlet.Order;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.DTO.OrderDTO;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
 import vn.edu.hcmuaf.fit.laptrinhweb2.services.OrderService;
+import vn.edu.hcmuaf.fit.laptrinhweb2.services.OrderSignatureService;
 
 import java.io.IOException;
 
@@ -35,14 +37,17 @@ public class page_orderDetail extends HttpServlet {
         }
 
         OrderService orderService = new OrderService();
+        OrderSignatureService orderSignatureService = new OrderSignatureService();
         Order order = orderService.getOrder(orderId);
-
+        OrderDTO orderDTO = orderSignatureService.toOrderDTO(order);
+        orderSignatureService.validateDTO(orderDTO);
         if (order == null) {
             response.sendRedirect("page_manageOrder?action=all");
             return;
         }
 
         request.setAttribute("order", order);
+        request.setAttribute("orderDTO", orderDTO);
         request.getRequestDispatcher("manageOrder_OrderDetail.jsp")
                 .forward(request, response);
     }
