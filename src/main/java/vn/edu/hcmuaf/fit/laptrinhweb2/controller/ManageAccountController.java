@@ -37,7 +37,7 @@ public class ManageAccountController extends HttpServlet {
                 request.setAttribute("activeTab", "password");
                 targetJsp = "/ChangePassword.jsp";
                 break;
-            case "/order-history":
+            case "/MyOrders":
                 request.setAttribute("activeTab", "orders");
                 targetJsp = "/HistorySale.jsp";
                 break;

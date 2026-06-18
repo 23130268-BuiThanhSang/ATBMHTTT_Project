@@ -120,7 +120,7 @@
 
                 <div class="ActionButtons">
                     <button class="AddToCart">THÊM VÀO GIỎ HÀNG</button>
-                    <button class="BuyNow">MUA NGAY</button>
+<%--                    <button class="BuyNow">MUA NGAY</button>--%>
                 </div>
             </div>
         </div>

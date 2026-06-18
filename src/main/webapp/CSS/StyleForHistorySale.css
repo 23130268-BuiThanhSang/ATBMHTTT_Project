@@ -101,9 +101,7 @@
     width: 100%;
     transition: box-shadow 0.16s;
 }
-.ItemProductInHistorySale:hover {
-    box-shadow: 0 4px 16px rgba(0,98,255,0.4);
-}
+
 .ItemProductInHistorySale img {
     width: 80px;
     height: 80px;
@@ -190,4 +188,243 @@
     font-size: 18px;
     padding: 50px 0 70px 0;
     font-style: italic;
+}
+
+/* --- New Styles for Order History --- */
+
+.status-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.VerifyStatus {
+    color: #fff;
+    background-color: #28a745;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.OrderTotal {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333;
+}
+
+.OrderTotal .price {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* --- Styles for Order Items Matching the Image --- */
+
+.ItemProductInHistorySale {
+    display: flex;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    gap: 16px;
+    background-color: #fff;
+    align-items: stretch;
+}
+
+.ItemProductInHistorySale img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light gray background placeholder */
+}
+
+.InforProduct {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.NameProduct {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.VariationProduct {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.PriceAndQuantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PriceProduct {
+    font-size: 15px;
+    color: #555;
+}
+
+.QuantityProduct {
+    font-size: 14px;
+    font-weight: bold;
+    color: #c9302c; /* Red color matching 'SL: 1' */
+}
+/* --- Order Block Header Layout (Left, Center, Right Split) --- */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dbedff; /* Light blue header block background matching image */
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+/* Left Column: Order Code */
+.order-code-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-code-block .eyebrow {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.order-code {
+    display: inline-block;
+    background-color: #fff;
+    color: #0066cc;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Center Column: Both Statuses Grouped */
+.status-group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns tags nicely alongside labels */
+    gap: 12px;
+}
+
+.status-label {
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+}
+
+.VerifyStatus, .OrderStatus {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.status-verified {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-completed {
+    background-color: #e8f8f5;
+    color: #2e7d32; /* Green style matching image badge */
+    border: 1px solid #a3e4d7;
+}
+
+/* Right Column: Date & Total Price */
+.order-meta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.OrderDate {
+    font-size: 14px;
+    color: #444;
+}
+
+.OrderDate span {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+.OrderTotal {
+    font-size: 15px;
+    color: #333;
+}
+
+.OrderTotal .price {
+    color: #c9302c; /* Red text price */
+    font-weight: bold;
+    font-size: 18px;
+}
+.VerifyStatus, .OrderStatus {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.status-unverified {
+    background-color: #ffebd9;
+    color: #ff8200;
+    border: 1px solid #ffcc99;
+}
+
+.status-verified {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-error {
+    background-color: #fde8e8;
+    color: #e53e3e;
+    border: 1px solid #f8b4b4;
+}
+
+.status-pending {
+    background-color: white;
+    color: #F7CB73;
+    border: 1px #F7CB73;
+}
+.status-processing {
+    background-color: #e6f9f3;
+    color: #1abc9c;
+    border: 1px solid #a3e4d7;
+}
+
+.status-shipped, .status-completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-cancelled {
+    background-color: #f7f7f7;
+    color: #e53e3e;
+    border: 1px solid #dddddd;
 }
