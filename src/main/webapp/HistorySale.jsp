@@ -1,10 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lịch sử mua hàng</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/AccountInfo.css?v=<%=System.currentTimeMillis()%>">
     <link rel="stylesheet" href="CSS/Style.css">
@@ -43,112 +44,82 @@
             </div>
         </div>
     </aside>
+
     <section class="BodyHistorySale">
-        <!-- Đơn hàng 1 -->
-        <div class="OrderBlock">
-            <header class="section-header">
-                <div>
-                    <p class="eyebrow">Mã đơn hàng</p>
-                    <h2 class="section-title">
-                        <span class="order-code">G09010</span>
-                    </h2>
-                </div>
-                <div class="status-badges">
-                    <span class="OrderStatus status-completed">Đã hoàn thành</span>
-                    <div class="OrderDate">Ngày đặt hàng: <span>12/3/2024</span></div>
-                </div>
-            </header>
-            <div class="ListItemProductInHistorySale">
-                <div class="ItemProductInHistorySale">
-                    <img src="https://supersports.com.vn/cdn/shop/products/BW-460-15KG-1.jpg?v=1703644838&width=1600" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Tạ Lục Giác 15Kg Body Sculpture - Đen</div>
-                        <div class="BrandProduct">SCULPTURE</div>
-                    </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
-                </div>
-                <div class="ItemProductInHistorySale">
-                    <img src="https://supersports.com.vn/cdn/shop/products/BW-460-15KG-1.jpg?v=1703644838&width=1600" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Tạ Lục Giác 15Kg Body Sculpture - Đen</div>
-                        <div class="BrandProduct">SCULPTURE</div>
-                    </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
-                </div>
-                <div class="ItemProductInHistorySale">
-                    <img src="https://supersports.com.vn/cdn/shop/products/BW-460-15KG-1.jpg?v=1703644838&width=1600" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Tạ Lục Giác 15Kg Body Sculpture - Đen</div>
-                        <div class="BrandProduct">SCULPTURE</div>
-                    </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
-                </div>
+        <c:if test="${empty listOrderDTOs}">
+            <div class="NoOrder" style="text-align: center; padding: 40px; font-size: 16px; color: #666;">
+                <i class="fa-solid fa-box-open" style="font-size: 48px; margin-bottom: 10px; color: #ccc;"></i>
+                <p>Bạn chưa có đơn hàng nào.</p>
             </div>
-        </div>
+        </c:if>
 
-        <!-- Đơn hàng 2 -->
-        <div class="OrderBlock">
-            <header class="section-header">
-                <div>
-                    <p class="eyebrow">Mã đơn hàng</p>
-                    <h2 class="section-title">
-                        <span class="order-code">G09011</span>
-                    </h2>
-                </div>
-                <div class="status-badges">
-                    <span class="OrderStatus status-completed">Đã hoàn thành</span>
-                    <div class="OrderDate">Ngày đặt hàng: <span>18/3/2024</span></div>
-                </div>
-            </header>
-            <div class="ListItemProductInHistorySale">
-                <div class="ItemProductInHistorySale">
-                    <img src="https://via.placeholder.com/160" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Dây kháng lực tập gym</div>
-                        <div class="BrandProduct">GYM PRO</div>
-                    </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
-                </div>
-                <div class="ItemProductInHistorySale">
-                    <img src="https://via.placeholder.com/160" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Găng tay tập gym ProGrip</div>
-                        <div class="BrandProduct">PROGRIP</div>
-                    </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
-                </div>
-            </div>
-        </div>
+        <c:forEach var="orderDTO" items="${listOrderDTOs}">
+            <a href="DigitalSignature?orderId=${orderDTO.order.id}" class="OrderBlock">
 
-        <!-- Đơn hàng 3 -->
-        <div class="OrderBlock">
-            <header class="section-header">
-                <div>
-                    <p class="eyebrow">Mã đơn hàng</p>
-                    <h2 class="section-title">
-                        <span class="order-code">G09012</span>
-                    </h2>
-                </div>
-                <div class="status-badges">
-                    <span class="OrderStatus status-completed">Đã hoàn thành</span>
-                    <div class="OrderDate">Ngày đặt hàng: <span>25/3/2024</span></div>
-                </div>
-            </header>
-            <div class="ListItemProductInHistorySale">
-                <div class="ItemProductInHistorySale">
-                    <img src="https://via.placeholder.com/160" alt="Product">
-                    <div class="InforProduct">
-                        <div class="NameProduct">Kettlebell 12Kg</div>
-                        <div class="BrandProduct">STRONGFIT</div>
+                <header class="section-header">
+                    <div class="order-code-block">
+                        <p class="eyebrow">Mã đơn hàng</p>
+                        <span class="order-code">#${orderDTO.order.id}</span>
                     </div>
-                    <div class="ButtonControl"><button class="Review">Đánh Giá</button></div>
+
+                    <div class="status-group-container">
+                        <div class="status-item">
+                            <span class="status-label">Trạng thái ký nhận:</span>
+                            <span class="VerifyStatus status-${orderDTO.verifyStatus.toString().toLowerCase()}">
+                                    ${orderDTO.verifyStatus}
+                            </span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Trạng thái giao hàng:</span>
+                            <span class="OrderStatus status-${orderDTO.order.order_status.toLowerCase()}">
+                                    ${orderDTO.order.order_status}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="order-meta-right">
+                        <div class="OrderDate">
+                            Ngày đặt hàng:
+                            <span>
+                                <fmt:parseDate value="${orderDTO.order.order_date}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" type="both" />
+                                <fmt:formatDate value="${parsedDate}" pattern="dd/MM/yyyy HH:mm" />
+                            </span>
+                        </div>
+                        <div class="OrderTotal">
+                            Tổng tiền:
+                            <span class="price">
+                                <fmt:formatNumber value="${orderDTO.order.price}" type="number" maxFractionDigits="0"/>đ
+                            </span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="ListItemProductInHistorySale">
+                    <c:forEach var="item" items="${orderDTO.order.items}">
+                        <div class="ItemProductInHistorySale">
+                            <img src="${item.variant.topImage}" alt="${item.product.name}">
+                            <div class="InforProduct">
+                                <div>
+                                    <div class="NameProduct">${item.product.name}</div>
+                                    <div class="VariationProduct">
+                                        Màu: ${item.variant.color} | Size: ${item.variant.sizeString}
+                                    </div>
+                                </div>
+                                <div class="PriceAndQuantity">
+                                    <div class="PriceProduct">
+                                        <fmt:formatNumber value="${item.price}" type="number" maxFractionDigits="0"/> đ
+                                    </div>
+                                    <div class="QuantityProduct">SL: ${item.quantity}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
-            </div>
-        </div>
+            </a>
+        </c:forEach>
     </section>
 </main>
 <jsp:include page="/Share/footer.jsp" />
 <script src="JS/Notification.js"></script>
 </body>
 </html>
-

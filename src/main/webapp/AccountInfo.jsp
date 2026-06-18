@@ -34,7 +34,7 @@
                     <i class="fa-solid fa-lock"></i>
                     <div class="NameOption">Đổi mật khẩu</div>
                 </a>
-                <a href="${pageContext.request.contextPath}/order-history" class="OptionIcon">
+                <a href="${pageContext.request.contextPath}/MyOrders" class="OptionIcon">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                     <div class="NameOptionBoldText">Lịch sử mua hàng</div>
                 </a>
