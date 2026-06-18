@@ -26,48 +26,82 @@
         <a class = "DetailPageLink" href="page_manageOrder?action=all">Xem toàn bộ đơn hàng</a>
         <div class="bottomBox">
             <p class = "BoxTitle">Đơn Hàng Trong Ngày</p>
-
             <div class="OrdersDisplay">
-                <c:forEach var="o" items="${orders}">
-                    <a href="page_orderDetail?orderId=${o.id}" class="OrderItem">
+                <c:forEach var="dto" items="${orderDTOs}">
+                    <a href="page_orderDetail?orderId=${dto.order.id}" class="OrderItem">
 
                         <div class="OrderHeader">
-                            <span class="OrderID">ID: ${o.id}</span>
-                            <span class="OrderDate">${o.order_date}</span>
+                            <span class="OrderID">ID: ${dto.order.id}</span>
+                            <span class="OrderDate">${dto.order.order_date}</span>
 
                             <span class="OrderStatus
                                 <c:choose>
-                                    <c:when test="${o.order_status == 'PENDING'}">status-pending</c:when>
-                                    <c:when test="${o.order_status == 'PROCESSING'}">status-processing</c:when>
-                                    <c:when test="${o.order_status == 'SHIPPED'}">status-shipped</c:when>
-<%--                                    <c:when test="${o.status == 'DELIVERED'}">status-completed</c:when>--%>
-                                    <c:when test="${o.order_status == 'CANCELLED'}">status-cancelled</c:when>
+                                    <c:when test="${dto.order.order_status == 'PENDING'}">status-pending</c:when>
+                                    <c:when test="${dto.order.order_status == 'PROCESSING'}">status-processing</c:when>
+                                    <c:when test="${dto.order.order_status == 'SHIPPED'}">status-shipped</c:when>
+                                    <c:when test="${dto.order.order_status == 'CANCELLED'}">status-cancelled</c:when>
                                 </c:choose>
                             ">
-                                    ${o.order_status}
+                                    ${dto.order.order_status}
+                            </span>
+                        </div>
+
+                        <div class="SignStatusRow">
+                            <span class="SignLabel">Sign Status:</span>
+                            <span class="SecurityBadge security-${dto.verifyStatus}">
+                                    ${dto.verifyStatus}
                             </span>
                         </div>
 
                         <div class="OrderSummary">
-                            <p class="CustomerName">
-                                User ID: <span>${o.user_id}</span>
-                            </p>
-
-                            <p class="OrderTotal">
-                                Total: <span>${o.price} VND</span>
-                            </p>
-
-                            <p class="ItemsCount">
-                                Items:
-                                <span>
-                        <c:out value="${o.items.size()}" />
-                    </span>
-                            </p>
+                            <p class="CustomerName">User ID: <span>${dto.order.user_id}</span></p>
+                            <p class="OrderTotal">Total: <span>${dto.order.price} VND</span></p>
+                            <p class="ItemsCount">Items: <span>${dto.order.items.size()}</span></p>
                         </div>
-
                     </a>
                 </c:forEach>
             </div>
+<%--            <div class="OrdersDisplay">--%>
+<%--                <c:forEach var="o" items="${orders}">--%>
+<%--                    <a href="page_orderDetail?orderId=${o.id}" class="OrderItem">--%>
+
+<%--                        <div class="OrderHeader">--%>
+<%--                            <span class="OrderID">ID: ${o.id}</span>--%>
+<%--                            <span class="OrderDate">${o.order_date}</span>--%>
+
+<%--                            <span class="OrderStatus--%>
+<%--                                <c:choose>--%>
+<%--                                    <c:when test="${o.order_status == 'PENDING'}">status-pending</c:when>--%>
+<%--                                    <c:when test="${o.order_status == 'PROCESSING'}">status-processing</c:when>--%>
+<%--                                    <c:when test="${o.order_status == 'SHIPPED'}">status-shipped</c:when>--%>
+<%--&lt;%&ndash;                                    <c:when test="${o.status == 'DELIVERED'}">status-completed</c:when>&ndash;%&gt;--%>
+<%--                                    <c:when test="${o.order_status == 'CANCELLED'}">status-cancelled</c:when>--%>
+<%--                                </c:choose>--%>
+<%--                            ">--%>
+<%--                                    ${o.order_status}--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+
+<%--                        <div class="OrderSummary">--%>
+<%--                            <p class="CustomerName">--%>
+<%--                                User ID: <span>${o.user_id}</span>--%>
+<%--                            </p>--%>
+
+<%--                            <p class="OrderTotal">--%>
+<%--                                Total: <span>${o.price} VND</span>--%>
+<%--                            </p>--%>
+
+<%--                            <p class="ItemsCount">--%>
+<%--                                Items:--%>
+<%--                                <span>--%>
+<%--                        <c:out value="${o.items.size()}" />--%>
+<%--                    </span>--%>
+<%--                            </p>--%>
+<%--                        </div>--%>
+
+<%--                    </a>--%>
+<%--                </c:forEach>--%>
+<%--            </div>--%>
         </div>
     </div>
 </div>

@@ -33,6 +33,10 @@ public class OrderService {
         return orderDao.getById(id);
     }
 
+    public List<Order> getOrderByUserId(int userId) {
+        return orderDao.getByUserId(userId);
+    }
+
     public List<Order> getToday() {
         return orderDao.getToday();
     }

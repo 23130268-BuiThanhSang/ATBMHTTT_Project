@@ -23,42 +23,70 @@
 
         <div class="OrderManageContainer">
             <form action="updateOrder" method="post">
-                <input type="hidden" name="orderId" value="${order.id}" />
-                <!-- ================= ORDER HEADER ================= -->
+                <input type="hidden" name="orderId" value="${orderDTO.order.id}" />
+
                 <div class="OrderHeader">
                     <h2 class="OrderTitle">Chi Tiết Đơn Hàng</h2>
 
                     <p class="OrderID">
-                        Mã đơn: <span>ID: ${order.id}</span>
+                        Mã đơn: <span>ID: ${orderDTO.order.id}</span>
                     </p>
 
                     <p class="OrderDate">
-                        Ngày tạo: <span>${order.order_date}</span>
+                        Ngày tạo: <span>${orderDTO.order.order_date}</span>
                     </p>
 
                     <div class="OrderStatusBox">
                         <label>Trạng thái:</label>
                         <select id="orderStatus" class="StatusSelect" name="status">
-                            <option value="PROCESSING" ${order.order_status == 'PROCESSING' ? 'selected' : ''}>Đang Xử Lý</option>
-                            <option value="SHIPPED"  ${order.order_status == 'SHIPPED'  ? 'selected' : ''}>Đã Giao</option>
-                            <option value="PENDING"    ${order.order_status == 'PENDING'    ? 'selected' : ''}>Tạm Ngưng</option>
-                            <option value="CANCELLED"  ${order.order_status == 'CANCELLED'  ? 'selected' : ''}>Đã Hủy</option>
+                            <option value="PROCESSING" ${orderDTO.order.order_status == 'PROCESSING' ? 'selected' : ''}>Đang Xử Lý</option>
+                            <option value="SHIPPED"  ${orderDTO.order.order_status == 'SHIPPED'  ? 'selected' : ''}>Đã Giao</option>
+                            <option value="PENDING"    ${orderDTO.order.order_status == 'PENDING'    ? 'selected' : ''}>Tạm Ngưng</option>
+                            <option value="CANCELLED"  ${orderDTO.order.order_status == 'CANCELLED'  ? 'selected' : ''}>Đã Hủy</option>
                         </select>
                     </div>
                 </div>
 
-                <!-- ================= ORDER ITEMS ================= -->
+                <div class="SignatureAuditBlock">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Xác Thực Chữ Ký Điện Tử</h3>
+
+                    <div class="AuditGrid">
+                        <div class="AuditItem">
+                            <span class="AuditLabel">Trạng thái ký:</span>
+                            <span class="DetailSecurityBadge security-${orderDTO.verifyStatus}">
+                                ${orderDTO.verifyStatus}
+                            </span>
+                        </div>
+
+                        <c:if test="${orderDTO.verifyStatus == 'VERIFIED' || orderDTO.verifyStatus == 'ERROR'}">
+                            <div class="AuditItem">
+                                <span class="AuditLabel">ID Khóa đã ký:</span>
+                                <span class="AuditValue">#${orderDTO.keyId}</span>
+                            </div>
+                            <div class="AuditItem">
+                                <span class="AuditLabel">Thời gian xác thực:</span>
+                                <span class="AuditValue">${orderDTO.dateVerify}</span>
+                            </div>
+                            <div class="AuditItem FullWidth">
+                                <span class="AuditLabel">Chuỗi Chữ Ký (Base64 Signature Payload):</span>
+                                <div class="SignatureHashBox">
+                                    <code>${orderDTO.signature}</code>
+                                </div>
+                            </div>
+                        </c:if>
+                    </div>
+                </div>
+
                 <div class="OrderItemsContainer">
                     <h3>Sản phẩm</h3>
-<%--                    <button class="StoredCheckButton">Kiểm hàng</button>--%>
 
                     <div class="AllItemsContainer">
-                        <c:forEach items="${order.items}" var="item">
+                        <c:forEach items="${orderDTO.order.items}" var="item">
                             <div class="OrderDetailItem">
                                 <span class="ItemName">
-                                        ${item.product.name}<br>
-                                            Kích cỡ: ${item.variant.getSizeString()}<br>
-                                            Màu sắc: ${item.variant.color}
+                                    ${item.product.name}<br>
+                                    Kích cỡ: ${item.variant.getSizeString()}<br>
+                                    Màu sắc: ${item.variant.color}
                                 </span>
 
                                 <span class="ItemQty">
@@ -68,26 +96,20 @@
                                 <span class="ItemPrice">
                                     <fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> đ
                                 </span>
-
-<%--                                <span class="StoredStatus">--%>
-<%--                                    Còn Hàng--%>
-<%--                                </span>--%>
                             </div>
                         </c:forEach>
                     </div>
                 </div>
 
-                <!-- ================= TOTAL ================= -->
                 <div class="OrderTotalBox">
                     <p class="FinalTotal">
                         <strong>Tổng cộng:</strong>
-                        <fmt:formatNumber value="${order.price}" type="number" groupingUsed="true"/> đ
+                        <fmt:formatNumber value="${orderDTO.order.price}" type="number" groupingUsed="true"/> đ
                     </p>
                 </div>
 
-                <!-- ================= ACTION BUTTONS ================= -->
                 <div class="ActionButtons">
-                    <button type = "submit" class="SaveBtn">Lưu Thay Đổi</button>
+                    <button type="submit" class="SaveBtn">Lưu Thay Đổi</button>
                 </div>
             </form>
         </div>
@@ -96,3 +118,101 @@
 
 </body>
 </html>
+<%--<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>--%>
+
+<%--<!DOCTYPE html>--%>
+<%--<html lang="en">--%>
+<%--<head>--%>
+<%--    <meta charset="UTF-8">--%>
+<%--    <title>Chi Tiết Đơn Hàng</title>--%>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">--%>
+<%--    <link rel="stylesheet" href="CSS/manageUser.css">--%>
+<%--    <link rel="stylesheet" href="CSS/manageOrder_OrderDetail.css">--%>
+<%--</head>--%>
+<%--<body>--%>
+
+<%--<div class="MainUI">--%>
+<%--    <jsp:include page="/Share/admin_leftbar.jsp" />--%>
+
+<%--    <div class="OrderManagerUI">--%>
+<%--        <div class="topRow">--%>
+<%--            <a class="turnBack" href="page_manageOrder?action=all">Quay lại</a>--%>
+<%--        </div>--%>
+
+<%--        <div class="OrderManageContainer">--%>
+<%--            <form action="updateOrder" method="post">--%>
+<%--                <input type="hidden" name="orderId" value="${order.id}" />--%>
+<%--                <!-- ================= ORDER HEADER ================= -->--%>
+<%--                <div class="OrderHeader">--%>
+<%--                    <h2 class="OrderTitle">Chi Tiết Đơn Hàng</h2>--%>
+
+<%--                    <p class="OrderID">--%>
+<%--                        Mã đơn: <span>ID: ${order.id}</span>--%>
+<%--                    </p>--%>
+
+<%--                    <p class="OrderDate">--%>
+<%--                        Ngày tạo: <span>${order.order_date}</span>--%>
+<%--                    </p>--%>
+
+<%--                    <div class="OrderStatusBox">--%>
+<%--                        <label>Trạng thái:</label>--%>
+<%--                        <select id="orderStatus" class="StatusSelect" name="status">--%>
+<%--                            <option value="PROCESSING" ${order.order_status == 'PROCESSING' ? 'selected' : ''}>Đang Xử Lý</option>--%>
+<%--                            <option value="SHIPPED"  ${order.order_status == 'SHIPPED'  ? 'selected' : ''}>Đã Giao</option>--%>
+<%--                            <option value="PENDING"    ${order.order_status == 'PENDING'    ? 'selected' : ''}>Tạm Ngưng</option>--%>
+<%--                            <option value="CANCELLED"  ${order.order_status == 'CANCELLED'  ? 'selected' : ''}>Đã Hủy</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+
+<%--                <!-- ================= ORDER ITEMS ================= -->--%>
+<%--                <div class="OrderItemsContainer">--%>
+<%--                    <h3>Sản phẩm</h3>--%>
+<%--&lt;%&ndash;                    <button class="StoredCheckButton">Kiểm hàng</button>&ndash;%&gt;--%>
+
+<%--                    <div class="AllItemsContainer">--%>
+<%--                        <c:forEach items="${order.items}" var="item">--%>
+<%--                            <div class="OrderDetailItem">--%>
+<%--                                <span class="ItemName">--%>
+<%--                                        ${item.product.name}<br>--%>
+<%--                                            Kích cỡ: ${item.variant.getSizeString()}<br>--%>
+<%--                                            Màu sắc: ${item.variant.color}--%>
+<%--                                </span>--%>
+
+<%--                                <span class="ItemQty">--%>
+<%--                                    x${item.quantity}--%>
+<%--                                </span>--%>
+
+<%--                                <span class="ItemPrice">--%>
+<%--                                    <fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> đ--%>
+<%--                                </span>--%>
+
+<%--&lt;%&ndash;                                <span class="StoredStatus">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    Còn Hàng&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                </span>&ndash;%&gt;--%>
+<%--                            </div>--%>
+<%--                        </c:forEach>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+
+<%--                <!-- ================= TOTAL ================= -->--%>
+<%--                <div class="OrderTotalBox">--%>
+<%--                    <p class="FinalTotal">--%>
+<%--                        <strong>Tổng cộng:</strong>--%>
+<%--                        <fmt:formatNumber value="${order.price}" type="number" groupingUsed="true"/> đ--%>
+<%--                    </p>--%>
+<%--                </div>--%>
+
+<%--                <!-- ================= ACTION BUTTONS ================= -->--%>
+<%--                <div class="ActionButtons">--%>
+<%--                    <button type = "submit" class="SaveBtn">Lưu Thay Đổi</button>--%>
+<%--                </div>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<%--</body>--%>
+<%--</html>--%>

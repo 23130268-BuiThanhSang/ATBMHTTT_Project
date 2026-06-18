@@ -411,3 +411,35 @@
         font-size: 20px;
     }
 }
+
+
+/* Security Badge styling - kept distinct from Business Order Status */
+/* Layout for the label and badge */
+.SignStatusRow {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 15px 0;
+    gap: 15px; /* This acts as your "tab" spacing */
+}
+
+.SignLabel {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge styling */
+.SecurityBadge {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.security-UNVERIFIED { background: #f3f4f6; color: #6b7280; border: 1px solid #d1d5db; }
+.security-VERIFIED { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.security-ERROR { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }

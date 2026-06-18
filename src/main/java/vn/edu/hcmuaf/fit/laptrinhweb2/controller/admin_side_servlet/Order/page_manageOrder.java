@@ -3,8 +3,10 @@ package vn.edu.hcmuaf.fit.laptrinhweb2.controller.admin_side_servlet.Order;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import vn.edu.hcmuaf.fit.laptrinhweb2.model.DTO.OrderDTO;
 import vn.edu.hcmuaf.fit.laptrinhweb2.model.Order;
 import vn.edu.hcmuaf.fit.laptrinhweb2.services.OrderService;
+import vn.edu.hcmuaf.fit.laptrinhweb2.services.OrderSignatureService;
 
 import java.io.IOException;
 import java.text.NumberFormat;
@@ -25,10 +27,11 @@ public class page_manageOrder extends HttpServlet {
         }
 
         OrderService orderService = new OrderService();
+        OrderSignatureService orderSignatureService = new OrderSignatureService();
         String action = request.getParameter("action");
 
         List<Order> orders;
-
+        List<OrderDTO> orderDTOs;
         // ===== DEFAULT: TODAY =====
         if (action == null || action.equals("today")) {
 
@@ -43,7 +46,9 @@ public class page_manageOrder extends HttpServlet {
 
             request.setAttribute("total_income", total_income);
             String total_order = String.valueOf(orderService.getAll().size());
+            orderDTOs = orderSignatureService.prepareOrderDTOList(orders);
             request.setAttribute("orders", orders);
+            request.setAttribute("orderDTOs", orderDTOs);
             request.setAttribute("total_income", total_income);
             request.setAttribute("total_order", total_order);
             request.getRequestDispatcher("manageOrder.jsp")
@@ -54,6 +59,8 @@ public class page_manageOrder extends HttpServlet {
         // ===== ALL ORDERS =====
         if (action.equals("all")) {
             orders = orderService.getAll();
+            orderDTOs = orderSignatureService.prepareOrderDTOList(orders);
+            request.setAttribute("orderDTOs", orderDTOs);
             request.setAttribute("orders", orders);
             request.getRequestDispatcher("manageOrder_AllOrders.jsp")
                     .forward(request, response);
@@ -87,7 +94,8 @@ public class page_manageOrder extends HttpServlet {
 
 
             orders = orderService.getByFilter(day, month, year, status);
-
+            orderDTOs = orderSignatureService.prepareOrderDTOList(orders);
+            request.setAttribute("orderDTOs", orderDTOs);
             request.setAttribute("orders", orders);
             request.setAttribute("day", day);
             request.setAttribute("month", month);
