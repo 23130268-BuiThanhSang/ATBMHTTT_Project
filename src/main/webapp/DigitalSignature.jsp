@@ -99,7 +99,7 @@
                 </div>
 
                 <button type="submit" class="ds-btn-primary">
-                    XÁC THỰC KÝ NHẬN & ĐẶT HÀNG
+                    XÁC THỰC KÝ NHẬN
                 </button>
             </div>
         </div>
