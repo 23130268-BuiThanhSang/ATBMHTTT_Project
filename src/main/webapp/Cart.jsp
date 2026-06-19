@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/StyleForPageShopping.css?v=<%=System.currentTimeMillis()%>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="CSS/StyleForPagePayment.css">
 </head>
 
 <body>
@@ -95,6 +96,14 @@
                 </div>
                 <div class="SummaryRow">
                     <span>Email: ${sessionScope.auth.accountEmail}</span>
+                </div>
+                <div class="AddAddess">
+                    <label>Địa chỉ nhận hàng : </label>
+                    <div class="DefaultAddress">
+                        <input type="text" name="address"
+                               class="DefaultAddressText"
+                               placeholder="Hãy thêm địa chỉ nhận hàng ...">
+                    </div>
                 </div>
                 <div class="SummaryRow">Tổng thành tiền:<span id="totalPrice">0 đ</span>
                 </div>
