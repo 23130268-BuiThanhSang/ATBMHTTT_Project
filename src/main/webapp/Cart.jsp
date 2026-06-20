@@ -49,8 +49,8 @@
 
                         </label>
 
+<%--                        <img src="getImage?path=${item.image}" class="ProductItemImage">--%>
                         <img src="${item.image}" class="ProductItemImage">
-
                         <div class="ProductItemInfor">
                             <div class="ProductItemName">${item.productName}</div>
                             <div class="ProductItemBrand">Màu sắc: ${item.color}</div>

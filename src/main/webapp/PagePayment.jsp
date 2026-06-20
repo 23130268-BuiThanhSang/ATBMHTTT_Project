@@ -53,7 +53,7 @@
             <c:forEach var="item" items="${sessionScope.cart.items}">
                 <c:if test="${item.selected}">
                     <div class="ProductItemInPayment">
-                        <img src="${item.image}">
+                        <img src="getImage?path=${item.image}">
                         <div>
                             <div>${item.productName}</div>
                             <div>Màu: ${item.color}</div>

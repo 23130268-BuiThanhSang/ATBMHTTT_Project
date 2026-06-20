@@ -83,7 +83,7 @@
                 <c:forEach var="p" items="${hotDealProductCards}">
                     <div class="ProductCard">
                         <div class="ProductImage">
-                            <img src="${p.imageUrl}" alt="${p.name}">
+                            <img src="getImage?path=${p.imageUrl}" alt="${p.name}">
                             <c:if test="${p.isNewProduct}">
                                 <div class="ProductTag LeftTag">
                                     <div class="NewBadge">NEW</div>
@@ -145,7 +145,7 @@
                 <c:forEach var="p" items="${ProductCardsNewest}">
                     <div class="ProductCard">
                         <div class="ProductImage">
-                            <img src="${p.imageUrl}" alt="${p.name}">
+                            <img src="getImage?path=${p.imageUrl}" alt="${p.name}">
                             <c:if test="${p.isNewProduct}">
                                 <div class="ProductTag LeftTag">
                                     <div class="NewBadge">NEW</div>
@@ -204,7 +204,7 @@
         <div class="SpecBrandButtonContainer">
             <c:forEach var="brand" items="${brands}">
                 <a class="SpecBrandButton" href="${root}/ListAllProduct?brandId=${brand.id}">
-                    <img src="${brand.thumbnailUrl}">
+                    <img src="getImage?path=${brand.thumbnailUrl}">
                 </a>
             </c:forEach>
         </div>
@@ -216,7 +216,7 @@
         <div class="SpecCollectionButtonContainer">
             <c:forEach var="collection" items="${collections}">
                 <a class="SpecCollectButton" href="${root}/ListAllProduct?collectionId=${collection.id}">
-                    <img src="${collection.thumbnailUrl}"/>
+                    <img src="getImage?path=${collection.thumbnailUrl}"/>
                 </a>
             </c:forEach>
 

@@ -198,7 +198,7 @@
                     <c:forEach var="p" items="${products}">
                         <div class="AdminCard">
                             <span class="CardID">#${p.id}</span>
-                            <img src="${p.imageUrl}" class="CardImage" alt="${p.name}">
+                            <img src="getImage?path=${p.imageUrl}" class="CardImage" alt="${p.name}">
 
                             <div class="CardInfo">
                                 <div class="CardBrand">${p.brandName}</div>
