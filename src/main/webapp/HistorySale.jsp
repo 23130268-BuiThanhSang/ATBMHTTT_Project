@@ -97,7 +97,7 @@
                 <div class="ListItemProductInHistorySale">
                     <c:forEach var="item" items="${orderDTO.order.items}">
                         <div class="ItemProductInHistorySale">
-                            <img src="${item.variant.topImage}" alt="${item.product.name}">
+                            <img src="getImage?path=${item.variant.topImage}" alt="${item.product.name}">
                             <div class="InforProduct">
                                 <div>
                                     <div class="NameProduct">${item.product.name}</div>

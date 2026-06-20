@@ -29,14 +29,14 @@
     <div class="ProductPreview">
         <div class="MainImageContainer">
             <c:if test="${not empty product.variants and not empty product.variants[0].images}">
-                <img src="${product.variants[0].images[0].imageUrl}"
+                <img src="getImage?path=${product.variants[0].images[0].imageUrl}"
                      id="mainImage" class="MainImage">
             </c:if>
         </div>
         <div class="ImageSlider GallerySlider">
             <c:forEach items="${product.variants}" var="variant">
                 <c:forEach items="${variant.images}" var="img" varStatus="i">
-                    <img src="${img.imageUrl}"
+                    <img src="getImage?path=${img.imageUrl}"
                          class="GalleryThumb ${variant.color == defaultVariant.color && i.index == 0 ? 'active' : ''}"
                          data-color="${variant.color}"
                          style="${variant.color == defaultVariant.color ? '' : 'display:none'}"
@@ -78,7 +78,7 @@
 
                 <c:forEach items="${product.variants}" var="variant" varStatus="v">
                     <c:if test="${!shownColors.contains(variant.color)}">
-                        <img src="${variant.images[0].imageUrl}"
+                        <img src="getImage?path=${variant.images[0].imageUrl}"
                              class="ColorThumb ${variant.color == defaultVariant.color ? 'active' : ''}"
                              data-color="${variant.color}"
                              onclick="changeColor(this)">

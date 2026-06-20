@@ -249,7 +249,7 @@
             <c:forEach var="p" items="${products}">
                 <div class="ProductCard">
                     <div class="ProductImage">
-                        <img src="${p.imageUrl}" alt="${p.name}">
+                        <img src="getImage?path=${p.imageUrl}" alt="${p.name}">
                         <c:if test="${p.isNewProduct}">
                             <div class="ProductTag LeftTag">
                                 <div class="NewBadge">NEW</div>

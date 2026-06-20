@@ -56,7 +56,7 @@
                         <c:when test="${not empty order.items }">
                             <c:forEach var="item" items="${order.items}">
                                 <div class="ds-product-item">
-                                    <img src="${item.variant.getTopImage()}" alt="${item.product.name}" class="ds-product-img" onerror="this.src='https://via.placeholder.com/70';">
+                                    <img src="getImage?path=${item.variant.getTopImage()}" alt="${item.product.name}" class="ds-product-img" onerror="this.src='https://via.placeholder.com/70';">
                                     <div class="ds-product-detail">
                                         <span class="ds-product-name">${item.product.name}</span>
                                         <span class="ds-product-meta">Màu: ${item.variant.color} | Size: ${item.variant.size}</span>
